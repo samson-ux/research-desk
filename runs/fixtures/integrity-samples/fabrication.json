@@ -1,0 +1,14 @@
+{
+  "detector": "find_fabricated_claims",
+  "detected": true,
+  "hit_count": 1,
+  "gate_if_ungraded_away": "BLOCKED",
+  "note": "123.4 is not in the cited passage. The passage still says $40.0 billion. This file is a detector sample, not a research conclusion.",
+  "hits": [
+    {
+      "claim_id": "CLM-001",
+      "kind": "fabricated_or_unreconciled_claim",
+      "detail": "value 123.4 USD_billions is unreconciled"
+    }
+  ]
+}

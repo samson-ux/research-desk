@@ -1,0 +1,2 @@
+{"asset":"NVDA","mark_currency":"USD","mark_price":"100.00","mark_source":"fixture://synthetic-price/NVDA","mark_status":"fixture","mark_timestamp":"2026-10-05","record_id":"J-001"}
+{"asset":"NVDA","mark_currency":"USD","mark_price":"237.54","mark_source":"https://query1.finance.yahoo.com/v8/finance/chart/NVDA?interval=1d&range=1d","mark_status":"fetched","mark_timestamp":"2026-10-05T12:41:15-05:00","record_id":"J-002"}

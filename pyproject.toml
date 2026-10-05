@@ -1,0 +1,13 @@
+[project]
+name = "research-desk"
+version = "0.1.0"
+description = "Evidence-first investment research desk. Research only: no broker, orders, or invented returns."
+requires-python = ">=3.11"
+readme = "README.md"
+dependencies = []
+
+[project.optional-dependencies]
+dev = []
+
+[tool.setuptools.packages.find]
+include = ["research_desk*"]
