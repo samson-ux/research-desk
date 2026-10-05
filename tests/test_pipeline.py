@@ -12,7 +12,7 @@ from research_desk.approval import ApprovalRequired, require_approval
 from research_desk.auditor import Auditor
 from research_desk.coordinator import Coordinator
 from research_desk.editor import _restore_from_passage
-from research_desk.live import documents_from_body, fetch_url
+from research_desk.live import documents_from_body, documents_from_ixbrl, fetch_url, latest_10q
 from research_desk.mandate import load_mandate
 from research_desk.pipeline import run_research
 from research_desk.run import main as run_main
@@ -331,6 +331,112 @@ class LiveGateTest(unittest.TestCase):
             state = run_research(Path(tmp) / "run", run_id="html", docs=docs, mode="live")
         self.assertNotIn("$", state["report_md"])
         self.assertEqual(state["audits"][-1]["gate"], "BLOCKED")
+
+    def test_inline_xbrl_keeps_the_quarter_and_two_receivable_shares(self):
+        html = """
+        <html><body>
+        <ix:nonNumeric name="dei:DocumentFiscalYearFocus">2027</ix:nonNumeric>
+        <ix:nonNumeric name="dei:DocumentFiscalPeriodFocus">Q2</ix:nonNumeric>
+        <xbrli:context id="c-dc">
+          <xbrli:entity><xbrli:segment>
+            <xbrldi:explicitMember dimension="srt:ProductOrServiceAxis">nvda:DataCenterMember</xbrldi:explicitMember>
+          </xbrli:segment></xbrli:entity>
+          <xbrli:period><xbrli:startDate>2026-04-27</xbrli:startDate><xbrli:endDate>2026-07-26</xbrli:endDate></xbrli:period>
+        </xbrli:context>
+        <xbrli:context id="c-prior">
+          <xbrli:entity><xbrli:segment>
+            <xbrldi:explicitMember dimension="srt:ProductOrServiceAxis">nvda:DataCenterMember</xbrldi:explicitMember>
+          </xbrli:segment></xbrli:entity>
+          <xbrli:period><xbrli:startDate>2025-04-28</xbrli:startDate><xbrli:endDate>2025-07-27</xbrli:endDate></xbrli:period>
+        </xbrli:context>
+        <xbrli:context id="c-half">
+          <xbrli:entity><xbrli:segment>
+            <xbrldi:explicitMember dimension="srt:ProductOrServiceAxis">nvda:DataCenterMember</xbrldi:explicitMember>
+          </xbrli:segment></xbrli:entity>
+          <xbrli:period><xbrli:startDate>2026-01-26</xbrli:startDate><xbrli:endDate>2026-07-26</xbrli:endDate></xbrli:period>
+        </xbrli:context>
+        <xbrli:context id="c-total">
+          <xbrli:entity></xbrli:entity>
+          <xbrli:period><xbrli:startDate>2026-04-27</xbrli:startDate><xbrli:endDate>2026-07-26</xbrli:endDate></xbrli:period>
+        </xbrli:context>
+        <xbrli:context id="c-ar-a">
+          <xbrli:entity><xbrli:segment>
+            <xbrldi:explicitMember dimension="us-gaap:ConcentrationRiskByTypeAxis">us-gaap:CustomerConcentrationRiskMember</xbrldi:explicitMember>
+            <xbrldi:explicitMember dimension="srt:MajorCustomersAxis">nvda:AccountsReceivableCustomerAMember</xbrldi:explicitMember>
+            <xbrldi:explicitMember dimension="us-gaap:ConcentrationRiskByBenchmarkAxis">us-gaap:AccountsReceivableMember</xbrldi:explicitMember>
+          </xbrli:segment></xbrli:entity>
+          <xbrli:period><xbrli:startDate>2026-01-26</xbrli:startDate><xbrli:endDate>2026-07-26</xbrli:endDate></xbrli:period>
+        </xbrli:context>
+        <xbrli:context id="c-ar-b">
+          <xbrli:entity><xbrli:segment>
+            <xbrldi:explicitMember dimension="us-gaap:ConcentrationRiskByTypeAxis">us-gaap:CustomerConcentrationRiskMember</xbrldi:explicitMember>
+            <xbrldi:explicitMember dimension="srt:MajorCustomersAxis">nvda:AccountsReceivableCustomerBMember</xbrldi:explicitMember>
+            <xbrldi:explicitMember dimension="us-gaap:ConcentrationRiskByBenchmarkAxis">us-gaap:AccountsReceivableMember</xbrldi:explicitMember>
+          </xbrli:segment></xbrli:entity>
+          <xbrli:period><xbrli:startDate>2026-01-26</xbrli:startDate><xbrli:endDate>2026-07-26</xbrli:endDate></xbrli:period>
+        </xbrli:context>
+        <ix:nonFraction name="us-gaap:Revenues" contextRef="c-dc" unitRef="usd" scale="6" decimals="-6">89,023</ix:nonFraction>
+        <ix:nonFraction name="us-gaap:Revenues" contextRef="c-prior" unitRef="usd" scale="6" decimals="-6">41,096</ix:nonFraction>
+        <ix:nonFraction name="us-gaap:Revenues" contextRef="c-half" unitRef="usd" scale="6" decimals="-6">164,269</ix:nonFraction>
+        <ix:nonFraction name="us-gaap:Revenues" contextRef="c-total" unitRef="usd" scale="6" decimals="-6">96,221</ix:nonFraction>
+        <ix:nonFraction name="us-gaap:ConcentrationRiskPercentage1" contextRef="c-ar-a" unitRef="number" scale="-2" decimals="2">22</ix:nonFraction>
+        <ix:nonFraction name="us-gaap:ConcentrationRiskPercentage1" contextRef="c-ar-b" unitRef="number" scale="-2" decimals="2">14</ix:nonFraction>
+        Data Center revenue was $89.0 billion in the prose and must not become the claim.
+        </body></html>
+        """
+        docs = documents_from_ixbrl(
+            "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000075/nvda-20260726.htm",
+            html.encode(),
+            published="2026-08-26",
+            retrieved="2026-10-05T09:00:00-05:00",
+            accession="0001045810-26-000075",
+        )
+        roles = {passage["role"]: passage for passage in docs[0]["passages"]}
+        self.assertEqual(roles["dc_current"]["value"], "89023.0")
+        self.assertEqual(roles["dc_current"]["unit"], "USD_millions")
+        self.assertEqual(roles["dc_prior"]["value"], "41096.0")
+        self.assertEqual(roles["total_current"]["value"], "96221.0")
+        self.assertEqual(roles["total_current"]["segment"], "Total")
+        self.assertEqual(roles["concentration"]["value"], "22.0")
+        self.assertEqual(roles["concentration_next"]["value"], "14.0")
+        self.assertNotIn("164269", docs[0]["excerpt"])
+        self.assertNotIn("$89.0 billion", docs[0]["excerpt"])
+        with TemporaryDirectory() as tmp:
+            state = run_research(
+                Path(tmp) / "run",
+                run_id="ixbrl",
+                docs=docs,
+                mode="live",
+                search_queries_used=2,
+            )
+        self.assertEqual(state["search_queries_used"], 2)
+        self.assertLessEqual(state["search_queries_used"], 15)
+        self.assertLessEqual(len(state["documents_inspected"]), 25)
+        final = state["audits"][-1]
+        self.assertEqual(final["gate"], "READY")
+        self.assertNotIn("164269", state["report_md"])
+        self.assertNotIn("$89.0 billion", state["report_md"])
+        dc = next(claim for claim in state["claims"] if claim["role"] == "dc_current")
+        self.assertEqual(dc["value"], "89023.0")
+
+    def test_latest_10q_skips_filings_after_the_cutoff(self):
+        payload = {
+            "cik": "0001045810",
+            "filings": {
+                "recent": {
+                    "form": ["10-Q", "10-Q", "8-K"],
+                    "filingDate": ["2026-10-06", "2026-08-26", "2026-08-26"],
+                    "accessionNumber": ["0001045810-26-000099", "0001045810-26-000075", "0001045810-26-000073"],
+                    "primaryDocument": ["later.htm", "nvda-20260726.htm", "earnings.htm"],
+                }
+            },
+        }
+        filing = latest_10q(json.dumps(payload).encode())
+        self.assertEqual(filing["filed"], "2026-08-26")
+        self.assertEqual(
+            filing["url"],
+            "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000075/nvda-20260726.htm",
+        )
 
     def test_fetch_allowlist(self):
         with self.assertRaises(ValueError):

@@ -41,8 +41,16 @@ class CommittedRunTest(unittest.TestCase):
         for line in text.splitlines()[1:]:
             self.assertTrue(line.endswith("not_computed,not_computed"))
 
-    def test_approval_file_is_absent(self):
-        self.assertFalse((ROOT / "approvals" / "rubric_approval.json").exists())
+    def test_samson_approval_matches_the_frozen_rubric(self):
+        from research_desk.approval import approval_matches, read_approval
+        from research_desk.mandate import load_mandate
+
+        path = ROOT / "approvals" / "rubric_approval.json"
+        approval = read_approval(path)
+        self.assertIsNotNone(approval)
+        self.assertEqual(approval["approved_by"], "Samson")
+        self.assertFalse(approval["expert_validated"])
+        self.assertTrue(approval_matches(approval, load_mandate()))
 
 
 if __name__ == "__main__":

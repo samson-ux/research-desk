@@ -251,7 +251,7 @@ def _add_formulas(builder: _ClaimBuilder) -> None:
             period="FY2027 Q2",
             segment="Data Center",
         )
-    if "dc_current" in roles:
+    if "dc_current" in roles and roles["dc_current"].get("unit") == "USD_billions":
         builder.add_formula(
             "scale_millions",
             "billion_to_million",

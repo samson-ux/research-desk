@@ -8,9 +8,9 @@ Generated criteria are **not expert-validated**. They adapt the criterion-by-cri
 
 ## Approval gate
 
-Live web research is blocked until a human approves the rubric printed by `python -m research_desk.show_rubric`.
+Samson approved the frozen rubric on 2026-10-05 (America/Chicago). The approval is `approvals/rubric_approval.json`. `expert_validated` stays false. `approved_by` is Samson.
 
-This repository does not contain `approvals/rubric_approval.json`. **Live NVDA research has not been executed.** The runs under `runs/fixtures/` are synthetic. Their figures are invented for the pipeline and are not NVIDIA Corporation results.
+`python -m research_desk.run --live` is allowed only while that file matches the rubric hash from `python -m research_desk.show_rubric`. The runs under `runs/fixtures/` remain synthetic. Their figures are invented for the pipeline and are not NVIDIA Corporation results.
 
 Historical sources dated before the cutoff stay eligible and keep their own dates. The cutoff does not erase them. A source published after 2026-10-05, or with an unknown publication date, is recorded and unused.
 
@@ -40,6 +40,8 @@ python -m research_desk.run --live
 ```
 
 `python -m research_desk.run --live` exits 2 until `approvals/rubric_approval.json` matches the printed rubric hash. See `approvals/README.md`. The value `approved_by: agent` is rejected. `expert_validated` must stay false.
+
+When the approval matches, `--live` fetches the SEC submissions index and the latest Form 10-Q filed on or before the cutoff. It reads quarterly inline-XBRL Data Center revenue, consolidated revenue, and direct-customer accounts-receivable shares, and it keeps those revenues in millions. Companyfacts is fetched only if that 10-Q has no quarterly Data Center fact. The run stays inside the 15-search and 25-document budgets.
 
 ## What a run contains
 

@@ -1,8 +1,8 @@
 # Approval gate
 
-Live web research is blocked until a human adds `approvals/rubric_approval.json`.
+`rubric_approval.json` records Samson’s approval of the frozen rubric on 2026-10-05 (America/Chicago).
 
-This directory does not contain that approval. The generated rubric is not expert-validated.
+`expert_validated` stays false. The criteria are generated and are not expert-validated.
 
 Required fields:
 

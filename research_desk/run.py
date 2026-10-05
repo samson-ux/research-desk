@@ -13,7 +13,7 @@ from research_desk.integrity import (
     find_uncited_magnitude_lines,
     rubric_mutated,
 )
-from research_desk.live import DEFAULT_URLS, documents_from_body, fetch_url
+from research_desk.live import collect_live, fetch_url
 from research_desk.mandate import load_mandate
 from research_desk.pipeline import run_research
 
@@ -80,30 +80,25 @@ def _live(root: Path, args: argparse.Namespace) -> int:
         return exc.code
     from urllib.request import urlopen
 
-    retrieved_docs: list[dict] = []
-    queries = 0
     limit = mandate["budgets"]["max_search_queries"]
-    for url in DEFAULT_URLS:
-        if queries >= limit:
-            break
-        status, body = fetch_url(url, opener=urlopen)
-        queries += 1
-        retrieved_docs.extend(documents_from_body(url, body))
-        if status != 200:
-            break
-    if not retrieved_docs:
-        retrieved_docs = documents_from_body(DEFAULT_URLS[0], b"")
+    retrieved_docs, queries = collect_live(urlopen, limit=limit, fetch=fetch_url)
     run_id = args.run_id or "live-nvda"
     out = Path(args.out) if args.out else root / "runs" / run_id
-    state = run_research(out, run_id=run_id, docs=retrieved_docs, mode="live")
-    state_queries = state["search_queries_used"]
-    # The pipeline counts a local query. Record the real fetches on the manifest
-    # by rewriting the flag the pipeline already stored as live mode.
+    state = run_research(
+        out,
+        run_id=run_id,
+        docs=retrieved_docs,
+        mode="live",
+        search_queries_used=queries,
+    )
+    final = state["audits"][-1]
     print(f"run_id: {run_id}")
     print(f"out: {out}")
-    print(f"gate: {state['audits'][-1]['gate']}")
+    print(f"gate: {final['gate']}")
+    print(f"score: {final['score']}")
     print(f"fetches: {queries}")
-    print(f"pipeline_search_queries_used: {state_queries}")
+    print(f"search_queries_used: {state['search_queries_used']}")
+    print(f"documents: {len(state['documents_inspected'])}")
     print("live_research_executed: true")
     return 0
 

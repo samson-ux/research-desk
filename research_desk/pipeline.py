@@ -21,6 +21,7 @@ def run_research(
     defect: str | None = None,
     docs: list[dict] | None = None,
     mode: str = "synthetic_fixture",
+    search_queries_used: int | None = None,
 ) -> dict:
     """Run the offline desk. `docs` overrides the fixture corpus (tests and live extracts)."""
     mandate = load_mandate()
@@ -37,6 +38,8 @@ def run_research(
     inspected, skipped = coordinator.select_documents(corpus, limit)
     state["documents_skipped"] = skipped
     Researcher().run(state, inspected)
+    if search_queries_used is not None:
+        state["search_queries_used"] = search_queries_used
     Skeptic().run(state)
     _apply_defect(state, defect)
     _audit_loop(state)

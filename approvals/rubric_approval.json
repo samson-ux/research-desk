@@ -1,0 +1,11 @@
+{
+  "approved": true,
+  "approved_by": "Samson",
+  "approved_at": "2026-10-05T00:00:00-05:00",
+  "timezone": "America/Chicago",
+  "cutoff_date": "2026-10-05",
+  "expert_validated": false,
+  "rubric_sha256": "4a71f17ba76d41fad68845f21b826582ba204890115e5dcf6744c1c88a5fbbff",
+  "mandate_sha256": "e81d4d720dc5e28ef94ba7f9d19fdb011479db3f97c36f03cb1f375af4e5c64e",
+  "note": "Samson approved the frozen generated rubric on 2026-10-05 America/Chicago. The criteria remain not expert-validated."
+}

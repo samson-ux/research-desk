@@ -1,0 +1,49 @@
+{
+  "approval_required_before_live_research": true,
+  "artifact_sha256": {
+    "README.md": "86636fd3b6ac41686879165a521bfe4dde41108d947d3a6986d6844f68eb610c",
+    "audit.json": "71bf2a20146dff27b33983503495586c36922baf959cdd3651b4c52532a56434",
+    "claims.csv": "7f571c77d6517db5b1a3bed4b600482338a1e56d851860ba92db710d66477bab",
+    "countercase.md": "d0aa18af8ff3246c9f24a4650e2ecaefa165c1490b0057b05a227dd5a7dafbff",
+    "mandate.json": "a4fbad2cb898af46db0b58ed956fcb493658c8d31f3aad891c3eecf5313fe0aa",
+    "report.md": "f205a0c619bf8baa4b0ac6638d5d744f44dd92c5dd1d70b726679d1dbaa875fa",
+    "revision_log.md": "d725f8cec63d6f98504db1107e4a3d0f5e9de0b41138c9bff9de02e4cd51c02a",
+    "rubric.json": "96735400cbc96ac288b9bd507b1bc38fd1f51fe29d48d85410aed6ee54368ad8",
+    "sources.jsonl": "e9a5b8702062bc08c6614052f21543a7c65d91038b79b62f83e851a3e87ae30d"
+  },
+  "asset": "NVDA",
+  "created_at": "2026-10-05T12:52:17-05:00",
+  "critical_failures": [],
+  "cutoff_date": "2026-10-05",
+  "defect": null,
+  "document_ids": [
+    "WEB-001"
+  ],
+  "document_limit": 25,
+  "documents_inspected": 1,
+  "documents_skipped": [],
+  "expert_validated": false,
+  "formula": "sum(weight * verdict) / sum(positive weights)",
+  "gate": "READY",
+  "live_research_executed": true,
+  "mandate_sha256": "e81d4d720dc5e28ef94ba7f9d19fdb011479db3f97c36f03cb1f375af4e5c64e",
+  "mode": "live",
+  "monitoring": [],
+  "positive_weight_sum": 50,
+  "question": "How durable is NVIDIA's AI-driven revenue growth over the next 12 months, and what evidence would invalidate that thesis?",
+  "revision_cycle_limit": 2,
+  "revision_cycles": 0,
+  "rubric_sha256": "4a71f17ba76d41fad68845f21b826582ba204890115e5dcf6744c1c88a5fbbff",
+  "run_id": "live-nvda",
+  "score": "0.88",
+  "search_queries_used": 2,
+  "search_query_limit": 15,
+  "synthetic": false,
+  "threshold": "0.85",
+  "timezone": "America/Chicago",
+  "unresolved": [
+    "C07-ALTERNATIVES",
+    "C11-MONITORING"
+  ],
+  "weighted_sum": "44"
+}

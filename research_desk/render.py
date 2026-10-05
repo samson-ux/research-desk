@@ -221,6 +221,13 @@ def _invalidation(roles: dict[str, dict]) -> list[str]:
             f"Threshold: {cite(roles['exposure'])} "
             "A later figure above that sourced share invalidates the durability judgment."
         )
+    elif "concentration" in roles:
+        lines.append(
+            "Condition 2. Metric: direct-customer accounts-receivable share. Direction: above. "
+            f"Threshold: {cite(roles['concentration'])} "
+            "A later primary print of the largest direct-customer accounts-receivable share "
+            "above that sourced share invalidates the durability judgment."
+        )
     else:
         lines.append("Condition 2 cannot be stated because the exposure fact is missing.")
     return lines
@@ -233,7 +240,7 @@ def _unknowns(sources: list[dict], roles: dict[str, dict]) -> list[str]:
             continue
         reason = source.get("exclusion_reason") or "unused"
         lines.append(f"{source['id']} is unused ({reason}). Its contents are not claims.")
-    lines.append("Customer orders after the spending-pause note are not quantified in the admitted documents.")
+    lines.append("Customer orders after the cutoff are not quantified in the admitted documents.")
     if "dc_current" not in roles:
         lines.append("Latest eligible Data Center revenue is unknown in the admitted documents.")
     lines.append("Unknown publication dates stay unknown.")
