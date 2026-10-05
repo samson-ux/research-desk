@@ -1,0 +1,198 @@
+{
+  "approval_required_before_live_research": true,
+  "asset": "NVDA",
+  "budgets": {
+    "max_revision_cycles": 2,
+    "max_search_queries": 15,
+    "max_unique_documents": 25
+  },
+  "company_issuers": [
+    "synthetic-nvidia",
+    "nvidia",
+    "0001045810"
+  ],
+  "criteria": [
+    {
+      "axis": "explicit",
+      "critical": true,
+      "id": "C01-THESIS",
+      "polarity": "positive",
+      "test": "The thesis section states Judgment: conditionally durable for NVIDIA AI-driven revenue over the twelve months after 2026-10-05, names the horizon end 2027-10-05, and calls that judgment an inference or an estimate, not a fact.",
+      "weight": 5
+    },
+    {
+      "axis": "references",
+      "critical": true,
+      "id": "C02-PRIMARY-SOURCES",
+      "polarity": "positive",
+      "test": "At least one verified Data Center revenue claim for the latest eligible quarter cites a full-text primary company source with a locator, and every claim whose metric class is revenue, growth, margin, or concentration does the same.",
+      "weight": 5
+    },
+    {
+      "axis": "explicit",
+      "critical": true,
+      "id": "C03-SEGMENT",
+      "polarity": "positive",
+      "test": "The thesis identifies AI-driven revenue with the disclosed Data Center segment and does not describe consolidated total revenue as AI-driven revenue.",
+      "weight": 5
+    },
+    {
+      "axis": "explicit",
+      "critical": true,
+      "id": "C04-PERIODS",
+      "polarity": "positive",
+      "test": "Every numeric claim records an applicable period, every comparison claim names two different periods, and no claim uses a retrieval timestamp as its applicable period.",
+      "weight": 4
+    },
+    {
+      "axis": "explicit",
+      "critical": true,
+      "id": "C05-INVALIDATION",
+      "polarity": "positive",
+      "test": "The invalidation section states at least two conditions, and each condition names a metric, a direction, a threshold that is a sourced or code-reconciled number, and the source id that defines the metric.",
+      "weight": 5
+    },
+    {
+      "axis": "synthesis",
+      "critical": true,
+      "id": "C06-OPPOSING",
+      "polarity": "positive",
+      "test": "The opposing-evidence section contains at least two claims tied to source ids from opposing sources, and the countercase does not assert that the two sides are equally weighted.",
+      "weight": 4
+    },
+    {
+      "axis": "synthesis",
+      "critical": false,
+      "id": "C07-ALTERNATIVES",
+      "polarity": "positive",
+      "test": "The alternatives section states two distinct alternatives, and each one cites a source id and uses only numbers present in claims.",
+      "weight": 3
+    },
+    {
+      "axis": "instruction",
+      "critical": true,
+      "id": "C08-UNITS",
+      "polarity": "positive",
+      "test": "Every numeric claim is unit-reconciled in code: money comparisons convert millions and billions to USD before relating them, and no numeric claim is marked unreconciled.",
+      "weight": 4
+    },
+    {
+      "axis": "synthesis",
+      "critical": true,
+      "id": "C09-INFERENCE",
+      "polarity": "positive",
+      "test": "Every inference or estimate claim lists supporting fact ids that resolve to fact claims, and the report does not label an inference as a fact.",
+      "weight": 4
+    },
+    {
+      "axis": "references",
+      "critical": false,
+      "id": "C10-TIMESTAMPS",
+      "polarity": "positive",
+      "test": "Every source record has an id, title, publisher, retrieval timestamp, and a publication value that is an ISO date or the token unknown. Unknown is not rewritten as a date.",
+      "weight": 3
+    },
+    {
+      "axis": "explicit",
+      "critical": false,
+      "id": "C11-MONITORING",
+      "polarity": "positive",
+      "test": "The monitoring section lists at least three observables whose dates fall after 2026-10-05, each with a source id.",
+      "weight": 3
+    },
+    {
+      "axis": "instruction",
+      "critical": false,
+      "id": "C12-CUTOFF",
+      "polarity": "positive",
+      "test": "No used source has a known publication date after 2026-10-05 or a publication value of unknown, and at least one used source predates the cutoff and keeps its own publication date.",
+      "weight": 3
+    },
+    {
+      "axis": "references",
+      "critical": false,
+      "id": "C13-LOCATORS",
+      "polarity": "positive",
+      "test": "Every verified numeric claim has a locator, and each sourced number is present in the cited passage under unit reconciliation or reproduced by the claim formula from cited inputs.",
+      "weight": 2
+    },
+    {
+      "axis": "negative",
+      "critical": true,
+      "id": "C14-UNCITED",
+      "polarity": "negative",
+      "test": "Bad behavior: a report or countercase line contains a dollar amount or a percent and does not contain a source id that owns that amount.",
+      "weight": -5
+    },
+    {
+      "axis": "negative",
+      "critical": true,
+      "id": "C15-FABRICATION",
+      "polarity": "negative",
+      "test": "Bad behavior: a numeric claim or a reported magnitude is neither present in a cited passage under unit reconciliation nor reproduced by the recorded formula from cited inputs.",
+      "weight": -5
+    },
+    {
+      "axis": "negative",
+      "critical": true,
+      "id": "C16-RUBRIC-MUTATION",
+      "polarity": "negative",
+      "test": "Bad behavior: the working rubric ids, tests, weights, critical flags, axes, or polarities differ from the frozen mandate rubric.",
+      "weight": -5
+    },
+    {
+      "axis": "negative",
+      "critical": true,
+      "id": "C17-SCOPE",
+      "polarity": "negative",
+      "test": "Bad behavior: the report or countercase contains an order, broker instruction, account access, position size, or an invented return.",
+      "weight": -5
+    },
+    {
+      "axis": "negative",
+      "critical": true,
+      "id": "C18-SNIPPET-AS-VERIFICATION",
+      "polarity": "negative",
+      "test": "Bad behavior: a claim is marked verified when a cited source is missing or its availability is not full_text.",
+      "weight": -4
+    }
+  ],
+  "cutoff_date": "2026-10-05",
+  "expert_validated": false,
+  "gate": {
+    "blocked_when": "a critical criterion fails, scores 0.5, or is unknown",
+    "formula": "sum(weight * verdict) / sum(positive weights)",
+    "partial_when": "no critical failure and score < 0.85",
+    "ready_requires": [
+      "score >= 0.85",
+      "every critical positive criterion verdict is 1",
+      "every critical negative criterion verdict is 0",
+      "no critical criterion is unknown"
+    ],
+    "threshold": "0.85",
+    "unknown_score_treatment": "unknown verdicts contribute 0 and block the gate when critical"
+  },
+  "horizon_end": "2027-10-05",
+  "mandate_id": "NVDA-DURABILITY-2026-10-05",
+  "mandate_sha256": "e81d4d720dc5e28ef94ba7f9d19fdb011479db3f97c36f03cb1f375af4e5c64e",
+  "provenance": {
+    "citation": "Sharma, Zhang, Bandi, Wang, et al. ResearchRubrics: A Benchmark of Prompts and Rubrics For Evaluating Deep Research Agents. arXiv:2511.07685.",
+    "expert_validated": false,
+    "framework": "ResearchRubrics",
+    "named_coauthor": "Clinton Wang",
+    "url": "https://arxiv.org/abs/2511.07685",
+    "what_was_adapted": "Criterion-by-criterion evaluation, negative criteria, and ternary grades (1 / 0.5 / 0). This desk's criteria were written for the NVDA question. They are not the expert-written ResearchRubrics benchmark items."
+  },
+  "question": "How durable is NVIDIA's AI-driven revenue growth over the next 12 months, and what evidence would invalidate that thesis?",
+  "rubric_sha256": "4a71f17ba76d41fad68845f21b826582ba204890115e5dcf6744c1c88a5fbbff",
+  "scope": [
+    "research only",
+    "no broker",
+    "no orders",
+    "no account access",
+    "no position sizing",
+    "no invented returns",
+    "the score measures rubric compliance, not forecast accuracy and not a return"
+  ],
+  "timezone": "America/Chicago"
+}

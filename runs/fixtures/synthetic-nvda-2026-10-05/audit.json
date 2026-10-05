@@ -1,0 +1,630 @@
+{
+  "cycles": [
+    {
+      "critical_failures": [],
+      "formula": "sum(weight * verdict) / sum(positive weights)",
+      "gate": "READY",
+      "positive_weight_sum": 50,
+      "reasons": [],
+      "rubric_sha256": "4a71f17ba76d41fad68845f21b826582ba204890115e5dcf6744c1c88a5fbbff",
+      "score": "1",
+      "threshold": "0.85",
+      "unknown_contributes_zero": true,
+      "verdicts": [
+        {
+          "critical": true,
+          "evidence_ids": [
+            "CLM-023",
+            "SRC-001"
+          ],
+          "id": "C01-THESIS",
+          "justification": "Thesis states the conditional inference, the cutoff, and the horizon end.",
+          "report_location": "report.md#thesis",
+          "test": "The thesis section states Judgment: conditionally durable for NVIDIA AI-driven revenue over the twelve months after 2026-10-05, names the horizon end 2027-10-05, and calls that judgment an inference or an estimate, not a fact.",
+          "unknown": false,
+          "verdict": 1,
+          "weight": 5
+        },
+        {
+          "critical": true,
+          "evidence_ids": [
+            "CLM-001",
+            "SRC-001"
+          ],
+          "id": "C02-PRIMARY-SOURCES",
+          "justification": "Latest Data Center revenue and every primary-metric claim cite a full-text primary company source.",
+          "report_location": "claims.csv#metric_class",
+          "test": "At least one verified Data Center revenue claim for the latest eligible quarter cites a full-text primary company source with a locator, and every claim whose metric class is revenue, growth, margin, or concentration does the same.",
+          "unknown": false,
+          "verdict": 1,
+          "weight": 5
+        },
+        {
+          "critical": true,
+          "evidence_ids": [
+            "report.md#thesis"
+          ],
+          "id": "C03-SEGMENT",
+          "justification": "AI-driven revenue is identified with Data Center and total revenue is not renamed to AI revenue.",
+          "report_location": "report.md#thesis",
+          "test": "The thesis identifies AI-driven revenue with the disclosed Data Center segment and does not describe consolidated total revenue as AI-driven revenue.",
+          "unknown": false,
+          "verdict": 1,
+          "weight": 5
+        },
+        {
+          "critical": true,
+          "evidence_ids": [
+            "CLM-001",
+            "SRC-001",
+            "CLM-002",
+            "CLM-003",
+            "CLM-004",
+            "CLM-005",
+            "SRC-002",
+            "CLM-006"
+          ],
+          "id": "C04-PERIODS",
+          "justification": "Numeric claims have applicable periods, and comparisons name two different periods.",
+          "report_location": "claims.csv#applicable_period",
+          "test": "Every numeric claim records an applicable period, every comparison claim names two different periods, and no claim uses a retrieval timestamp as its applicable period.",
+          "unknown": false,
+          "verdict": 1,
+          "weight": 4
+        },
+        {
+          "critical": true,
+          "evidence_ids": [
+            "SRC-001",
+            "SRC-004"
+          ],
+          "id": "C05-INVALIDATION",
+          "justification": "2 invalidation conditions name a metric, direction, sourced threshold, and source id.",
+          "report_location": "report.md#invalidation",
+          "test": "The invalidation section states at least two conditions, and each condition names a metric, a direction, a threshold that is a sourced or code-reconciled number, and the source id that defines the metric.",
+          "unknown": false,
+          "verdict": 1,
+          "weight": 5
+        },
+        {
+          "critical": true,
+          "evidence_ids": [
+            "CLM-005",
+            "SRC-002",
+            "CLM-009",
+            "SRC-003",
+            "CLM-010",
+            "SRC-004"
+          ],
+          "id": "C06-OPPOSING",
+          "justification": "3 opposing claims are shown with source ids, without an invented tie.",
+          "report_location": "report.md#opposing-evidence",
+          "test": "The opposing-evidence section contains at least two claims tied to source ids from opposing sources, and the countercase does not assert that the two sides are equally weighted.",
+          "unknown": false,
+          "verdict": 1,
+          "weight": 4
+        },
+        {
+          "critical": false,
+          "evidence_ids": [
+            "SRC-006",
+            "SRC-006",
+            "SRC-006",
+            "SRC-005",
+            "SRC-005",
+            "SRC-005",
+            "SRC-006",
+            "SRC-001",
+            "SRC-005",
+            "SRC-001"
+          ],
+          "id": "C07-ALTERNATIVES",
+          "justification": "Two alternatives are stated with source ids.",
+          "report_location": "report.md#alternatives",
+          "test": "The alternatives section states two distinct alternatives, and each one cites a source id and uses only numbers present in claims.",
+          "unknown": false,
+          "verdict": 1,
+          "weight": 3
+        },
+        {
+          "critical": true,
+          "evidence_ids": [
+            "CLM-001",
+            "SRC-001",
+            "CLM-002",
+            "CLM-003",
+            "CLM-004",
+            "CLM-005",
+            "SRC-002",
+            "CLM-006"
+          ],
+          "id": "C08-UNITS",
+          "justification": "Every numeric claim reconciled in code, including million/billion conversion.",
+          "report_location": "claims.csv#unit",
+          "test": "Every numeric claim is unit-reconciled in code: money comparisons convert millions and billions to USD before relating them, and no numeric claim is marked unreconciled.",
+          "unknown": false,
+          "verdict": 1,
+          "weight": 4
+        },
+        {
+          "critical": true,
+          "evidence_ids": [
+            "CLM-018",
+            "SRC-001",
+            "CLM-019",
+            "CLM-020",
+            "CLM-021",
+            "SRC-005",
+            "CLM-022",
+            "SRC-006"
+          ],
+          "id": "C09-INFERENCE",
+          "justification": "Inferences cite fact claims and the report does not call an inference a fact.",
+          "report_location": "report.md",
+          "test": "Every inference or estimate claim lists supporting fact ids that resolve to fact claims, and the report does not label an inference as a fact.",
+          "unknown": false,
+          "verdict": 1,
+          "weight": 4
+        },
+        {
+          "critical": false,
+          "evidence_ids": [
+            "SRC-001",
+            "SRC-002",
+            "SRC-003",
+            "SRC-004",
+            "SRC-005",
+            "SRC-006",
+            "SRC-007",
+            "SRC-008"
+          ],
+          "id": "C10-TIMESTAMPS",
+          "justification": "Sources keep id, title, publisher, retrieval time, and a publication date or unknown.",
+          "report_location": "sources.jsonl",
+          "test": "Every source record has an id, title, publisher, retrieval timestamp, and a publication value that is an ISO date or the token unknown. Unknown is not rewritten as a date.",
+          "unknown": false,
+          "verdict": 1,
+          "weight": 3
+        },
+        {
+          "critical": false,
+          "evidence_ids": [
+            "SRC-007",
+            "SRC-007",
+            "SRC-007"
+          ],
+          "id": "C11-MONITORING",
+          "justification": "3 monitoring items are dated after the cutoff and cited.",
+          "report_location": "report.md#monitoring",
+          "test": "The monitoring section lists at least three observables whose dates fall after 2026-10-05, each with a source id.",
+          "unknown": false,
+          "verdict": 1,
+          "weight": 3
+        },
+        {
+          "critical": false,
+          "evidence_ids": [
+            "SRC-001",
+            "SRC-002",
+            "SRC-003",
+            "SRC-004",
+            "SRC-005",
+            "SRC-006",
+            "SRC-007"
+          ],
+          "id": "C12-CUTOFF",
+          "justification": "Used sources are dated on or before the cutoff, and at least one predates it.",
+          "report_location": "sources.jsonl#used",
+          "test": "No used source has a known publication date after 2026-10-05 or a publication value of unknown, and at least one used source predates the cutoff and keeps its own publication date.",
+          "unknown": false,
+          "verdict": 1,
+          "weight": 3
+        },
+        {
+          "critical": false,
+          "evidence_ids": [
+            "CLM-001",
+            "SRC-001",
+            "CLM-002",
+            "CLM-003",
+            "CLM-004",
+            "CLM-005",
+            "SRC-002",
+            "CLM-006"
+          ],
+          "id": "C13-LOCATORS",
+          "justification": "Verified numeric claims have locators and reconcile to a passage or a formula.",
+          "report_location": "claims.csv#locator",
+          "test": "Every verified numeric claim has a locator, and each sourced number is present in the cited passage under unit reconciliation or reproduced by the claim formula from cited inputs.",
+          "unknown": false,
+          "verdict": 1,
+          "weight": 2
+        },
+        {
+          "critical": true,
+          "evidence_ids": [
+            "scan:report.md",
+            "scan:countercase.md"
+          ],
+          "id": "C14-UNCITED",
+          "justification": "Every dollar amount and percent in the report and countercase is owned by a cited claim.",
+          "report_location": "report.md",
+          "test": "Bad behavior: a report or countercase line contains a dollar amount or a percent and does not contain a source id that owns that amount.",
+          "unknown": false,
+          "verdict": 0,
+          "weight": -5
+        },
+        {
+          "critical": true,
+          "evidence_ids": [
+            "scan:claims.csv",
+            "scan:report.md"
+          ],
+          "id": "C15-FABRICATION",
+          "justification": "No numeric claim or reported magnitude failed the passage and formula checks.",
+          "report_location": "claims.csv",
+          "test": "Bad behavior: a numeric claim or a reported magnitude is neither present in a cited passage under unit reconciliation nor reproduced by the recorded formula from cited inputs.",
+          "unknown": false,
+          "verdict": 0,
+          "weight": -5
+        },
+        {
+          "critical": true,
+          "evidence_ids": [
+            "mandate:4a71f17ba76d",
+            "working:4a71f17ba76d"
+          ],
+          "id": "C16-RUBRIC-MUTATION",
+          "justification": "Working rubric matches the frozen mandate rubric.",
+          "report_location": "rubric.json",
+          "test": "Bad behavior: the working rubric ids, tests, weights, critical flags, axes, or polarities differ from the frozen mandate rubric.",
+          "unknown": false,
+          "verdict": 0,
+          "weight": -5
+        },
+        {
+          "critical": true,
+          "evidence_ids": [
+            "scan:report.md",
+            "scan:countercase.md"
+          ],
+          "id": "C17-SCOPE",
+          "justification": "Report and countercase contain no order, sizing, account, or invented-return instruction.",
+          "report_location": "report.md",
+          "test": "Bad behavior: the report or countercase contains an order, broker instruction, account access, position size, or an invented return.",
+          "unknown": false,
+          "verdict": 0,
+          "weight": -5
+        },
+        {
+          "critical": true,
+          "evidence_ids": [
+            "scan:claims.csv"
+          ],
+          "id": "C18-SNIPPET-AS-VERIFICATION",
+          "justification": "Every verified claim cites full text.",
+          "report_location": "claims.csv#status",
+          "test": "Bad behavior: a claim is marked verified when a cited source is missing or its availability is not full_text.",
+          "unknown": false,
+          "verdict": 0,
+          "weight": -4
+        }
+      ],
+      "weighted_sum": "50",
+      "working_rubric_sha256": "4a71f17ba76d41fad68845f21b826582ba204890115e5dcf6744c1c88a5fbbff"
+    }
+  ],
+  "final": {
+    "critical_failures": [],
+    "formula": "sum(weight * verdict) / sum(positive weights)",
+    "gate": "READY",
+    "positive_weight_sum": 50,
+    "reasons": [],
+    "rubric_sha256": "4a71f17ba76d41fad68845f21b826582ba204890115e5dcf6744c1c88a5fbbff",
+    "score": "1",
+    "threshold": "0.85",
+    "unknown_contributes_zero": true,
+    "verdicts": [
+      {
+        "critical": true,
+        "evidence_ids": [
+          "CLM-023",
+          "SRC-001"
+        ],
+        "id": "C01-THESIS",
+        "justification": "Thesis states the conditional inference, the cutoff, and the horizon end.",
+        "report_location": "report.md#thesis",
+        "test": "The thesis section states Judgment: conditionally durable for NVIDIA AI-driven revenue over the twelve months after 2026-10-05, names the horizon end 2027-10-05, and calls that judgment an inference or an estimate, not a fact.",
+        "unknown": false,
+        "verdict": 1,
+        "weight": 5
+      },
+      {
+        "critical": true,
+        "evidence_ids": [
+          "CLM-001",
+          "SRC-001"
+        ],
+        "id": "C02-PRIMARY-SOURCES",
+        "justification": "Latest Data Center revenue and every primary-metric claim cite a full-text primary company source.",
+        "report_location": "claims.csv#metric_class",
+        "test": "At least one verified Data Center revenue claim for the latest eligible quarter cites a full-text primary company source with a locator, and every claim whose metric class is revenue, growth, margin, or concentration does the same.",
+        "unknown": false,
+        "verdict": 1,
+        "weight": 5
+      },
+      {
+        "critical": true,
+        "evidence_ids": [
+          "report.md#thesis"
+        ],
+        "id": "C03-SEGMENT",
+        "justification": "AI-driven revenue is identified with Data Center and total revenue is not renamed to AI revenue.",
+        "report_location": "report.md#thesis",
+        "test": "The thesis identifies AI-driven revenue with the disclosed Data Center segment and does not describe consolidated total revenue as AI-driven revenue.",
+        "unknown": false,
+        "verdict": 1,
+        "weight": 5
+      },
+      {
+        "critical": true,
+        "evidence_ids": [
+          "CLM-001",
+          "SRC-001",
+          "CLM-002",
+          "CLM-003",
+          "CLM-004",
+          "CLM-005",
+          "SRC-002",
+          "CLM-006"
+        ],
+        "id": "C04-PERIODS",
+        "justification": "Numeric claims have applicable periods, and comparisons name two different periods.",
+        "report_location": "claims.csv#applicable_period",
+        "test": "Every numeric claim records an applicable period, every comparison claim names two different periods, and no claim uses a retrieval timestamp as its applicable period.",
+        "unknown": false,
+        "verdict": 1,
+        "weight": 4
+      },
+      {
+        "critical": true,
+        "evidence_ids": [
+          "SRC-001",
+          "SRC-004"
+        ],
+        "id": "C05-INVALIDATION",
+        "justification": "2 invalidation conditions name a metric, direction, sourced threshold, and source id.",
+        "report_location": "report.md#invalidation",
+        "test": "The invalidation section states at least two conditions, and each condition names a metric, a direction, a threshold that is a sourced or code-reconciled number, and the source id that defines the metric.",
+        "unknown": false,
+        "verdict": 1,
+        "weight": 5
+      },
+      {
+        "critical": true,
+        "evidence_ids": [
+          "CLM-005",
+          "SRC-002",
+          "CLM-009",
+          "SRC-003",
+          "CLM-010",
+          "SRC-004"
+        ],
+        "id": "C06-OPPOSING",
+        "justification": "3 opposing claims are shown with source ids, without an invented tie.",
+        "report_location": "report.md#opposing-evidence",
+        "test": "The opposing-evidence section contains at least two claims tied to source ids from opposing sources, and the countercase does not assert that the two sides are equally weighted.",
+        "unknown": false,
+        "verdict": 1,
+        "weight": 4
+      },
+      {
+        "critical": false,
+        "evidence_ids": [
+          "SRC-006",
+          "SRC-006",
+          "SRC-006",
+          "SRC-005",
+          "SRC-005",
+          "SRC-005",
+          "SRC-006",
+          "SRC-001",
+          "SRC-005",
+          "SRC-001"
+        ],
+        "id": "C07-ALTERNATIVES",
+        "justification": "Two alternatives are stated with source ids.",
+        "report_location": "report.md#alternatives",
+        "test": "The alternatives section states two distinct alternatives, and each one cites a source id and uses only numbers present in claims.",
+        "unknown": false,
+        "verdict": 1,
+        "weight": 3
+      },
+      {
+        "critical": true,
+        "evidence_ids": [
+          "CLM-001",
+          "SRC-001",
+          "CLM-002",
+          "CLM-003",
+          "CLM-004",
+          "CLM-005",
+          "SRC-002",
+          "CLM-006"
+        ],
+        "id": "C08-UNITS",
+        "justification": "Every numeric claim reconciled in code, including million/billion conversion.",
+        "report_location": "claims.csv#unit",
+        "test": "Every numeric claim is unit-reconciled in code: money comparisons convert millions and billions to USD before relating them, and no numeric claim is marked unreconciled.",
+        "unknown": false,
+        "verdict": 1,
+        "weight": 4
+      },
+      {
+        "critical": true,
+        "evidence_ids": [
+          "CLM-018",
+          "SRC-001",
+          "CLM-019",
+          "CLM-020",
+          "CLM-021",
+          "SRC-005",
+          "CLM-022",
+          "SRC-006"
+        ],
+        "id": "C09-INFERENCE",
+        "justification": "Inferences cite fact claims and the report does not call an inference a fact.",
+        "report_location": "report.md",
+        "test": "Every inference or estimate claim lists supporting fact ids that resolve to fact claims, and the report does not label an inference as a fact.",
+        "unknown": false,
+        "verdict": 1,
+        "weight": 4
+      },
+      {
+        "critical": false,
+        "evidence_ids": [
+          "SRC-001",
+          "SRC-002",
+          "SRC-003",
+          "SRC-004",
+          "SRC-005",
+          "SRC-006",
+          "SRC-007",
+          "SRC-008"
+        ],
+        "id": "C10-TIMESTAMPS",
+        "justification": "Sources keep id, title, publisher, retrieval time, and a publication date or unknown.",
+        "report_location": "sources.jsonl",
+        "test": "Every source record has an id, title, publisher, retrieval timestamp, and a publication value that is an ISO date or the token unknown. Unknown is not rewritten as a date.",
+        "unknown": false,
+        "verdict": 1,
+        "weight": 3
+      },
+      {
+        "critical": false,
+        "evidence_ids": [
+          "SRC-007",
+          "SRC-007",
+          "SRC-007"
+        ],
+        "id": "C11-MONITORING",
+        "justification": "3 monitoring items are dated after the cutoff and cited.",
+        "report_location": "report.md#monitoring",
+        "test": "The monitoring section lists at least three observables whose dates fall after 2026-10-05, each with a source id.",
+        "unknown": false,
+        "verdict": 1,
+        "weight": 3
+      },
+      {
+        "critical": false,
+        "evidence_ids": [
+          "SRC-001",
+          "SRC-002",
+          "SRC-003",
+          "SRC-004",
+          "SRC-005",
+          "SRC-006",
+          "SRC-007"
+        ],
+        "id": "C12-CUTOFF",
+        "justification": "Used sources are dated on or before the cutoff, and at least one predates it.",
+        "report_location": "sources.jsonl#used",
+        "test": "No used source has a known publication date after 2026-10-05 or a publication value of unknown, and at least one used source predates the cutoff and keeps its own publication date.",
+        "unknown": false,
+        "verdict": 1,
+        "weight": 3
+      },
+      {
+        "critical": false,
+        "evidence_ids": [
+          "CLM-001",
+          "SRC-001",
+          "CLM-002",
+          "CLM-003",
+          "CLM-004",
+          "CLM-005",
+          "SRC-002",
+          "CLM-006"
+        ],
+        "id": "C13-LOCATORS",
+        "justification": "Verified numeric claims have locators and reconcile to a passage or a formula.",
+        "report_location": "claims.csv#locator",
+        "test": "Every verified numeric claim has a locator, and each sourced number is present in the cited passage under unit reconciliation or reproduced by the claim formula from cited inputs.",
+        "unknown": false,
+        "verdict": 1,
+        "weight": 2
+      },
+      {
+        "critical": true,
+        "evidence_ids": [
+          "scan:report.md",
+          "scan:countercase.md"
+        ],
+        "id": "C14-UNCITED",
+        "justification": "Every dollar amount and percent in the report and countercase is owned by a cited claim.",
+        "report_location": "report.md",
+        "test": "Bad behavior: a report or countercase line contains a dollar amount or a percent and does not contain a source id that owns that amount.",
+        "unknown": false,
+        "verdict": 0,
+        "weight": -5
+      },
+      {
+        "critical": true,
+        "evidence_ids": [
+          "scan:claims.csv",
+          "scan:report.md"
+        ],
+        "id": "C15-FABRICATION",
+        "justification": "No numeric claim or reported magnitude failed the passage and formula checks.",
+        "report_location": "claims.csv",
+        "test": "Bad behavior: a numeric claim or a reported magnitude is neither present in a cited passage under unit reconciliation nor reproduced by the recorded formula from cited inputs.",
+        "unknown": false,
+        "verdict": 0,
+        "weight": -5
+      },
+      {
+        "critical": true,
+        "evidence_ids": [
+          "mandate:4a71f17ba76d",
+          "working:4a71f17ba76d"
+        ],
+        "id": "C16-RUBRIC-MUTATION",
+        "justification": "Working rubric matches the frozen mandate rubric.",
+        "report_location": "rubric.json",
+        "test": "Bad behavior: the working rubric ids, tests, weights, critical flags, axes, or polarities differ from the frozen mandate rubric.",
+        "unknown": false,
+        "verdict": 0,
+        "weight": -5
+      },
+      {
+        "critical": true,
+        "evidence_ids": [
+          "scan:report.md",
+          "scan:countercase.md"
+        ],
+        "id": "C17-SCOPE",
+        "justification": "Report and countercase contain no order, sizing, account, or invented-return instruction.",
+        "report_location": "report.md",
+        "test": "Bad behavior: the report or countercase contains an order, broker instruction, account access, position size, or an invented return.",
+        "unknown": false,
+        "verdict": 0,
+        "weight": -5
+      },
+      {
+        "critical": true,
+        "evidence_ids": [
+          "scan:claims.csv"
+        ],
+        "id": "C18-SNIPPET-AS-VERIFICATION",
+        "justification": "Every verified claim cites full text.",
+        "report_location": "claims.csv#status",
+        "test": "Bad behavior: a claim is marked verified when a cited source is missing or its availability is not full_text.",
+        "unknown": false,
+        "verdict": 0,
+        "weight": -4
+      }
+    ],
+    "weighted_sum": "50",
+    "working_rubric_sha256": "4a71f17ba76d41fad68845f21b826582ba204890115e5dcf6744c1c88a5fbbff"
+  }
+}

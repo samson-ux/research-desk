@@ -1,0 +1,9 @@
+{
+  "asset": "NVDA",
+  "price": "100.00",
+  "currency": "USD",
+  "as_of": "2026-10-05",
+  "source": "fixture://synthetic-price/NVDA",
+  "synthetic": true,
+  "note": "Not a market quote. Offline stand-in so mark/report can run without a network price."
+}

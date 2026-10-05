@@ -1,0 +1,58 @@
+RUBRIC FOR HUMAN APPROVAL
+Generated for this desk. Not expert-validated. Not a ResearchRubrics benchmark rubric.
+Asset: NVDA
+Question: How durable is NVIDIA's AI-driven revenue growth over the next 12 months, and what evidence would invalidate that thesis?
+Cutoff: 2026-10-05 (America/Chicago)
+Horizon end: 2027-10-05
+Mandate: NVDA-DURABILITY-2026-10-05
+Rubric SHA256: 4a71f17ba76d41fad68845f21b826582ba204890115e5dcf6744c1c88a5fbbff
+Mandate SHA256: e81d4d720dc5e28ef94ba7f9d19fdb011479db3f97c36f03cb1f375af4e5c64e
+Criteria: 18
+Positive weight sum: 50
+Gate: sum(weight * verdict) / sum(positive weights)
+READY if score >= 0.85, every critical positive verdict is 1,
+every critical negative verdict is 0, and no critical criterion is unknown.
+Critical means absolute weight 4 or 5.
+Negative criteria score the occurrence of the bad behavior (verdict 1 means it occurred).
+LIVE RESEARCH: BLOCKED until approvals/rubric_approval.json matches this rubric hash.
+
+ID                                 W Crit  Axis
+-------------------------------- --- ----- ------------
+C01-THESIS                         5 yes   explicit
+  test: The thesis section states Judgment: conditionally durable for NVIDIA AI-driven revenue over the twelve months after 2026-10-05, names the horizon end 2027-10-05, and calls that judgment an inference or an estimate, not a fact.
+C02-PRIMARY-SOURCES                5 yes   references
+  test: At least one verified Data Center revenue claim for the latest eligible quarter cites a full-text primary company source with a locator, and every claim whose metric class is revenue, growth, margin, or concentration does the same.
+C03-SEGMENT                        5 yes   explicit
+  test: The thesis identifies AI-driven revenue with the disclosed Data Center segment and does not describe consolidated total revenue as AI-driven revenue.
+C04-PERIODS                        4 yes   explicit
+  test: Every numeric claim records an applicable period, every comparison claim names two different periods, and no claim uses a retrieval timestamp as its applicable period.
+C05-INVALIDATION                   5 yes   explicit
+  test: The invalidation section states at least two conditions, and each condition names a metric, a direction, a threshold that is a sourced or code-reconciled number, and the source id that defines the metric.
+C06-OPPOSING                       4 yes   synthesis
+  test: The opposing-evidence section contains at least two claims tied to source ids from opposing sources, and the countercase does not assert that the two sides are equally weighted.
+C07-ALTERNATIVES                   3 no    synthesis
+  test: The alternatives section states two distinct alternatives, and each one cites a source id and uses only numbers present in claims.
+C08-UNITS                          4 yes   instruction
+  test: Every numeric claim is unit-reconciled in code: money comparisons convert millions and billions to USD before relating them, and no numeric claim is marked unreconciled.
+C09-INFERENCE                      4 yes   synthesis
+  test: Every inference or estimate claim lists supporting fact ids that resolve to fact claims, and the report does not label an inference as a fact.
+C10-TIMESTAMPS                     3 no    references
+  test: Every source record has an id, title, publisher, retrieval timestamp, and a publication value that is an ISO date or the token unknown. Unknown is not rewritten as a date.
+C11-MONITORING                     3 no    explicit
+  test: The monitoring section lists at least three observables whose dates fall after 2026-10-05, each with a source id.
+C12-CUTOFF                         3 no    instruction
+  test: No used source has a known publication date after 2026-10-05 or a publication value of unknown, and at least one used source predates the cutoff and keeps its own publication date.
+C13-LOCATORS                       2 no    references
+  test: Every verified numeric claim has a locator, and each sourced number is present in the cited passage under unit reconciliation or reproduced by the claim formula from cited inputs.
+C14-UNCITED                       -5 yes   negative
+  test: Bad behavior: a report or countercase line contains a dollar amount or a percent and does not contain a source id that owns that amount.
+C15-FABRICATION                   -5 yes   negative
+  test: Bad behavior: a numeric claim or a reported magnitude is neither present in a cited passage under unit reconciliation nor reproduced by the recorded formula from cited inputs.
+C16-RUBRIC-MUTATION               -5 yes   negative
+  test: Bad behavior: the working rubric ids, tests, weights, critical flags, axes, or polarities differ from the frozen mandate rubric.
+C17-SCOPE                         -5 yes   negative
+  test: Bad behavior: the report or countercase contains an order, broker instruction, account access, position size, or an invented return.
+C18-SNIPPET-AS-VERIFICATION       -4 yes   negative
+  test: Bad behavior: a claim is marked verified when a cited source is missing or its availability is not full_text.
+
+Do not treat a READY gate as a return, a price target, or an order.

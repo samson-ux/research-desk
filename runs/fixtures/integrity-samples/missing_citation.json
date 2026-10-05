@@ -1,0 +1,15 @@
+{
+  "detector": "find_uncited_magnitude_lines",
+  "detected": true,
+  "hit_count": 1,
+  "gate_if_ungraded_away": "BLOCKED",
+  "note": "The line repeats a real fixture magnitude and omits the source id. This file is a detector sample, not a research conclusion.",
+  "hits": [
+    {
+      "line": 1,
+      "text": "Data Center revenue was $40.0 billion.",
+      "kind": "missing_citation",
+      "detail": "magnitude without a source id"
+    }
+  ]
+}

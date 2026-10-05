@@ -1,0 +1,87 @@
+{
+  "approval_required_before_live_research": true,
+  "artifact_sha256": {
+    "README.md": "fd328ae8e149a2e514c8b0291933176e32e906dc95056e48889ac5d321554d85",
+    "audit.json": "e4b99c6e27a2e99ebd61a61899daf3596fd9ad72e37313229ea5e03c3c6152e5",
+    "claims.csv": "b2786a9990a46e5a74eaf30ea035a06b5fed446687ad49ceb6d33a42ebf8d5dd",
+    "countercase.md": "e812e9599adc7abe442b9bde453eb63dcc0b5c26495328154fc945e79cd6398f",
+    "mandate.json": "a4fbad2cb898af46db0b58ed956fcb493658c8d31f3aad891c3eecf5313fe0aa",
+    "report.md": "9239c8c1c3c779ccfa4947b8f87458f8618e2a5f71672ef88ad00ab763b03d43",
+    "revision_log.md": "5f6db3e0561000106038f234e007d200fff7a973a9b123dec97f79daa36c3a66",
+    "rubric.json": "96735400cbc96ac288b9bd507b1bc38fd1f51fe29d48d85410aed6ee54368ad8",
+    "sources.jsonl": "640e5e4fa7d22781383e3ab97450a2143881d0447e34ff770edd85af0ea1458b"
+  },
+  "asset": "NVDA",
+  "created_at": "2026-10-05T12:41:00-05:00",
+  "critical_failures": [
+    "C01-THESIS",
+    "C02-PRIMARY-SOURCES",
+    "C05-INVALIDATION"
+  ],
+  "cutoff_date": "2026-10-05",
+  "defect": "drop_primary_revenue",
+  "document_ids": [
+    "SRC-001",
+    "SRC-002",
+    "SRC-003",
+    "SRC-004",
+    "SRC-005",
+    "SRC-006",
+    "SRC-007",
+    "SRC-008",
+    "SRC-009"
+  ],
+  "document_limit": 25,
+  "documents_inspected": 9,
+  "documents_skipped": [],
+  "expert_validated": false,
+  "formula": "sum(weight * verdict) / sum(positive weights)",
+  "gate": "BLOCKED",
+  "live_research_executed": false,
+  "mandate_sha256": "e81d4d720dc5e28ef94ba7f9d19fdb011479db3f97c36f03cb1f375af4e5c64e",
+  "mode": "synthetic_fixture",
+  "monitoring": [
+    {
+      "claim_id": "CLM-014",
+      "date": "2026-11-18",
+      "source_ids": [
+        "SRC-007"
+      ],
+      "text": "The next earnings release is scheduled for 2026-11-18."
+    },
+    {
+      "claim_id": "CLM-015",
+      "date": "2026-12-07",
+      "source_ids": [
+        "SRC-007"
+      ],
+      "text": "The Form 10-Q filing window opens on 2026-12-07."
+    },
+    {
+      "claim_id": "CLM-016",
+      "date": "2027-02-17",
+      "source_ids": [
+        "SRC-007"
+      ],
+      "text": "The Form 10-K filing window opens on 2027-02-17."
+    }
+  ],
+  "positive_weight_sum": 50,
+  "question": "How durable is NVIDIA's AI-driven revenue growth over the next 12 months, and what evidence would invalidate that thesis?",
+  "revision_cycle_limit": 2,
+  "revision_cycles": 2,
+  "rubric_sha256": "4a71f17ba76d41fad68845f21b826582ba204890115e5dcf6744c1c88a5fbbff",
+  "run_id": "blocked-missing-primary",
+  "score": "0.75",
+  "search_queries_used": 0,
+  "search_query_limit": 15,
+  "synthetic": true,
+  "threshold": "0.85",
+  "timezone": "America/Chicago",
+  "unresolved": [
+    "C01-THESIS",
+    "C02-PRIMARY-SOURCES",
+    "C05-INVALIDATION"
+  ],
+  "weighted_sum": "37.5"
+}

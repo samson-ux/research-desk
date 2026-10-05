@@ -1,0 +1,9 @@
+{
+  "detector": "rubric_mutated",
+  "detected": true,
+  "frozen_sha256": "4a71f17ba76d41fad68845f21b826582ba204890115e5dcf6744c1c88a5fbbff",
+  "mutated_weight": 1,
+  "mutated_id": "C01-THESIS",
+  "gate_if_ungraded_away": "BLOCKED",
+  "note": "Changing a frozen weight is a mutation. The editor restores the mandate rubric instead of adopting it. This file is a detector sample, not a research conclusion."
+}
