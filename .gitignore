@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+paper-work/
+replay-out/
+**/bars_cache.json
+**/*.tmp
+**/*.tmp.xlsx

@@ -1,0 +1,161 @@
+# PAPER-ONLY intraday engine. No broker, no orders.
+# GitHub cron is UTC and can lag, so each Chicago instant is scheduled at both
+# the CDT (UTC-5) and CST (UTC-6) offset. The job guards on America/Chicago
+# and skips the off-season duplicate, weekends, and NYSE holidays.
+name: paper-engine
+
+on:
+  schedule:
+    # Job A ~07:50 America/Chicago. CDT = 12:50 UTC, CST = 13:50 UTC.
+    - cron: "50 12 * * 1-5"
+    - cron: "50 13 * * 1-5"
+    # Job B ~11:25 America/Chicago. CDT = 16:25 UTC, CST = 17:25 UTC.
+    - cron: "25 16 * * 1-5"
+    - cron: "25 17 * * 1-5"
+  workflow_dispatch:
+    inputs:
+      replay_date:
+        description: "Replay this YYYY-MM-DD from Yahoo 1-minute bars. Empty = live Chicago session."
+        required: false
+        type: string
+        default: ""
+      dry_run:
+        description: "Run the engine but do not push the paper-data branch."
+        required: false
+        type: boolean
+        default: false
+      job:
+        description: "Which session to run. Live cron ignores this and uses the clock."
+        required: true
+        type: choice
+        options:
+          - both
+          - A
+          - B
+        default: both
+
+permissions:
+  contents: write
+
+concurrency:
+  group: paper-engine
+  cancel-in-progress: false
+
+jobs:
+  job-a:
+    name: job-a morning
+    if: >-
+      ${{
+        (github.event_name == 'workflow_dispatch' && (inputs.job == 'both' || inputs.job == 'A'))
+        || (github.event_name == 'schedule' && (github.event.schedule == '50 12 * * 1-5' || github.event.schedule == '50 13 * * 1-5'))
+      }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install
+        run: pip install -r paper/requirements.txt
+      - name: Fetch paper-data
+        run: |
+          git fetch origin paper-data || true
+          if git rev-parse --verify origin/paper-data >/dev/null 2>&1; then
+            rm -rf /tmp/paper-data-seed
+            mkdir -p /tmp/paper-data-seed
+            git archive origin/paper-data | tar -x -C /tmp/paper-data-seed
+          fi
+      - name: Run Job A
+        id: run
+        run: |
+          set -euo pipefail
+          args=(--job A --data-root "$GITHUB_WORKSPACE/paper-work")
+          if [ -d /tmp/paper-data-seed ]; then
+            args+=(--branch-seed /tmp/paper-data-seed)
+          fi
+          if [ -n "${REPLAY_DATE}" ]; then
+            args+=(--date "$REPLAY_DATE" --replay)
+          fi
+          python3 paper/run_job.py "${args[@]}"
+        env:
+          REPLAY_DATE: ${{ inputs.replay_date }}
+      - name: Upload handoff
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: paper-handoff
+          path: paper-work
+          if-no-files-found: ignore
+          retention-days: 5
+      - name: Publish paper-data
+        if: steps.run.outcome == 'success' && (github.event_name == 'schedule' || inputs.dry_run == false)
+        env:
+          REPLAY_DATE: ${{ inputs.replay_date }}
+        run: |
+          set -euo pipefail
+          date_arg=()
+          if [ -n "${REPLAY_DATE}" ]; then
+            date_arg=(--date "$REPLAY_DATE")
+          fi
+          python3 paper/publish_paper_data.py --repo "$GITHUB_WORKSPACE" --data-root "$GITHUB_WORKSPACE/paper-work" "${date_arg[@]}"
+
+  job-b:
+    name: job-b afternoon
+    needs: job-a
+    if: >-
+      ${{
+        always() && needs.job-a.result != 'cancelled' &&
+        (
+          (github.event_name == 'workflow_dispatch' && (inputs.job == 'both' || inputs.job == 'B'))
+          || (github.event_name == 'schedule' && (github.event.schedule == '25 16 * * 1-5' || github.event.schedule == '25 17 * * 1-5'))
+        )
+      }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install
+        run: pip install -r paper/requirements.txt
+      - name: Download Job A handoff
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          name: paper-handoff
+          path: paper-work
+      - name: Fetch paper-data
+        run: |
+          git fetch origin paper-data || true
+          if git rev-parse --verify origin/paper-data >/dev/null 2>&1; then
+            rm -rf /tmp/paper-data-seed
+            mkdir -p /tmp/paper-data-seed
+            git archive origin/paper-data | tar -x -C /tmp/paper-data-seed
+          fi
+      - name: Run Job B
+        id: run
+        run: |
+          set -euo pipefail
+          args=(--job B --data-root "$GITHUB_WORKSPACE/paper-work")
+          if [ -d /tmp/paper-data-seed ]; then
+            args+=(--branch-seed /tmp/paper-data-seed)
+          fi
+          if [ -n "${REPLAY_DATE}" ]; then
+            args+=(--date "$REPLAY_DATE" --replay)
+          fi
+          python3 paper/run_job.py "${args[@]}"
+        env:
+          REPLAY_DATE: ${{ inputs.replay_date }}
+      - name: Publish paper-data
+        if: steps.run.outcome == 'success' && (github.event_name == 'schedule' || inputs.dry_run == false)
+        env:
+          REPLAY_DATE: ${{ inputs.replay_date }}
+        run: |
+          set -euo pipefail
+          date_arg=()
+          if [ -n "${REPLAY_DATE}" ]; then
+            date_arg=(--date "$REPLAY_DATE")
+          fi
+          python3 paper/publish_paper_data.py --repo "$GITHUB_WORKSPACE" --data-root "$GITHUB_WORKSPACE/paper-work" "${date_arg[@]}"
