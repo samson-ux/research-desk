@@ -1,0 +1,399 @@
+{
+  "version": 4,
+  "paper_only": true,
+  "session_date": "CARRIED",
+  "derived_from": "rules_v3 R8 gap fade + experimental NR7 (Crabel) and rules_v2 R6/R7",
+  "purpose": "PAPER-ONLY intraday forward test. No broker, no orders. Fills use Yahoo Finance chart API bars only. R8 gap fade is the primary rule. NR7, R6, and R7 are EXPERIMENTAL (negative out-of-sample in backtest_results.csv) and are tracked separately.",
+  "global": {
+    "budget_usd": 1000.0,
+    "max_positions": 4,
+    "risk_pct": 1.0,
+    "max_position_notional_pct": 35.0,
+    "min_stop_pct": 0.15,
+    "slippage_bps": 5,
+    "commission_usd": 0.0,
+    "entry_start_ct": "08:35",
+    "entry_cutoff_ct": "14:30",
+    "flatten_ct": "14:55",
+    "end_ct": "15:00",
+    "poll_seconds": 60,
+    "daily_loss_halt_pct": 3.0,
+    "max_entries_per_ticker_per_rule": 1,
+    "cooldown_min_after_stop": 15,
+    "allow_shorts": true,
+    "watchlist_capacity": {
+      "min": 15,
+      "max": 20
+    },
+    "review_times_ct": [
+      "09:32",
+      "10:32",
+      "11:32",
+      "12:32",
+      "13:32",
+      "14:32"
+    ],
+    "journal_rebuild_min": 5,
+    "rule_priority": [
+      "R8",
+      "NR7",
+      "R6",
+      "R7"
+    ],
+    "max_position_notional_usd": 350.0,
+    "jobs": {
+      "A": {
+        "wake_ct": "07:50",
+        "trade_start_ct": "08:20",
+        "trade_end_ct": "11:30"
+      },
+      "B": {
+        "trade_start_ct": "11:25",
+        "trade_end_ct": "15:00",
+        "flatten_ct": "14:55"
+      }
+    }
+  },
+  "context_etfs": [
+    "SPY",
+    "QQQ",
+    "XLK",
+    "XLF",
+    "XLE",
+    "XLV",
+    "XLY",
+    "XLI",
+    "SMH"
+  ],
+  "watchlist": [
+    {
+      "ticker": "NVDA",
+      "sector": "SMH",
+      "bias": "both",
+      "daily_flags": []
+    },
+    {
+      "ticker": "AMD",
+      "sector": "SMH",
+      "bias": "both",
+      "daily_flags": []
+    },
+    {
+      "ticker": "SHOP",
+      "sector": "XLK",
+      "bias": "both",
+      "daily_flags": []
+    },
+    {
+      "ticker": "PANW",
+      "sector": "XLK",
+      "bias": "both",
+      "daily_flags": []
+    },
+    {
+      "ticker": "CRWD",
+      "sector": "XLK",
+      "bias": "both",
+      "daily_flags": []
+    },
+    {
+      "ticker": "MSFT",
+      "sector": "XLK",
+      "bias": "both",
+      "daily_flags": []
+    },
+    {
+      "ticker": "TSLA",
+      "sector": "XLY",
+      "bias": "both",
+      "daily_flags": []
+    },
+    {
+      "ticker": "MSTR",
+      "sector": "QQQ",
+      "bias": "both",
+      "daily_flags": []
+    },
+    {
+      "ticker": "AFRM",
+      "sector": "XLF",
+      "bias": "both",
+      "daily_flags": []
+    },
+    {
+      "ticker": "UAL",
+      "sector": "XLI",
+      "bias": "both",
+      "daily_flags": []
+    },
+    {
+      "ticker": "XOM",
+      "sector": "XLE",
+      "bias": "both",
+      "daily_flags": []
+    },
+    {
+      "ticker": "OXY",
+      "sector": "XLE",
+      "bias": "both",
+      "daily_flags": []
+    }
+  ],
+  "watchlist_note": "Premarket refresh rewrites watchlist ~08:00 CT each session from rules_current.json snapshot.",
+  "context": {
+    "require_above_vwap": true,
+    "require_above_ema20_5m": true,
+    "require_sector_green": true,
+    "require_sector_above_vwap": true,
+    "require_spy_with_trade": true
+  },
+  "rules": {
+    "R1": {
+      "name": "5-min Opening Range Breakout (stocks in play)",
+      "enabled": false,
+      "sides": [
+        "long",
+        "short"
+      ],
+      "window_ct": [
+        "08:35",
+        "10:30"
+      ],
+      "min_open_rvol": 1.0,
+      "vol_mult": 0,
+      "stop_atr_frac": 0.1,
+      "use_or_opposite_if_tighter": false,
+      "target_r": 5.0,
+      "time_stop_min": 385,
+      "risk_mult": 1.0,
+      "max_extension_atr": 0.25,
+      "note": "disabled in v3: lost money out-of-sample in backtest",
+      "max_entries": 1
+    },
+    "R2": {
+      "name": "5-min engulfing at VWAP/EMA20 with confirmation",
+      "enabled": false,
+      "sides": [
+        "long",
+        "short"
+      ],
+      "window_ct": [
+        "08:45",
+        "14:30"
+      ],
+      "vol_mult": 1.2,
+      "touch_tol_pct": 0.2,
+      "confirm_bars_1m": 10,
+      "stop_buffer_atr5": 0.1,
+      "target_r": 2.0,
+      "time_stop_min": 45,
+      "risk_mult": 1.0,
+      "note": "disabled in v3: lost money out-of-sample in backtest"
+    },
+    "R3": {
+      "name": "5-min hammer / shooting star at VWAP/EMA20 with confirmation",
+      "enabled": false,
+      "sides": [
+        "long",
+        "short"
+      ],
+      "window_ct": [
+        "08:45",
+        "14:30"
+      ],
+      "vol_mult": 1.2,
+      "touch_tol_pct": 0.2,
+      "wick_body_ratio": 2.0,
+      "confirm_bars_1m": 10,
+      "stop_buffer_atr5": 0.1,
+      "target_r": 2.0,
+      "time_stop_min": 45,
+      "risk_mult": 1.0,
+      "note": "disabled in v3: lost money out-of-sample in backtest"
+    },
+    "R4": {
+      "name": "Daily-pattern breakout of prior day high/low (inside day, NR7, 20d high, engulfing)",
+      "enabled": false,
+      "sides": [
+        "long",
+        "short"
+      ],
+      "window_ct": [
+        "08:45",
+        "13:30"
+      ],
+      "vol_mult": 1.2,
+      "stop_atr_frac": 0.25,
+      "target_r": 2.0,
+      "time_stop_min": 90,
+      "long_flags": [
+        "inside_day",
+        "NR7",
+        "20d_high_close",
+        "bull_engulf",
+        "hammer"
+      ],
+      "short_flags": [
+        "inside_day",
+        "NR7",
+        "20d_low_close",
+        "bear_engulf",
+        "shooting_star"
+      ],
+      "risk_mult": 1.0,
+      "note": "disabled in v3: lost money out-of-sample in backtest"
+    },
+    "R5": {
+      "name": "Trend pullback to rising 5-min EMA20 (Raschke/Brooks style)",
+      "enabled": false,
+      "sides": [
+        "long",
+        "short"
+      ],
+      "window_ct": [
+        "09:30",
+        "14:30"
+      ],
+      "vol_mult": 1.2,
+      "ema_slope_bars": 3,
+      "stop_buffer_atr5": 0.1,
+      "target_r": 2.0,
+      "time_stop_min": 60,
+      "risk_mult": 1.0,
+      "note": "disabled in v3: lost money out-of-sample in backtest"
+    },
+    "R8": {
+      "name": "Opening gap fade (gap-fill)",
+      "enabled": true,
+      "sides": [
+        "long",
+        "short"
+      ],
+      "window_ct": [
+        "08:35",
+        "08:40"
+      ],
+      "gap_min_pct": 1.0,
+      "gap_max_pct": 3.0,
+      "stop_buffer_atr": 0.05,
+      "target": "prior close",
+      "target_r": 0,
+      "time_stop_min": 385,
+      "max_entries": 1,
+      "risk_mult": 1.0,
+      "skip_context": true,
+      "vol_mult": 0,
+      "entry": "Gap up 1-3% vs prior close AND first 5-min bar (8:30-8:35 CT) closes red -> SHORT at latest 1m close; gap down 1-3% AND first bar green -> LONG. Evaluated once per ticker per day.",
+      "stop": "Beyond first 5-min bar extreme by 0.05 x daily ATR14 (min 0.15% of price)",
+      "exit": "Target = prior close; else stop; else 14:55 CT flatten",
+      "source": "Gap-fill heuristic; academic evidence mixed (Plastun, Sibande, Gupta & Wohar 2020, Price gap anomaly in the US stock market)",
+      "experimental": false
+    },
+    "R6": {
+      "name": "5-min VWAP reclaim",
+      "enabled": true,
+      "sides": [
+        "long",
+        "short"
+      ],
+      "window_ct": [
+        "08:45",
+        "14:30"
+      ],
+      "vol_mult": 1.2,
+      "vol_mult_high_rvol_name": 1.0,
+      "stop_atr_frac_5m": 0.2,
+      "target_r": 2.0,
+      "time_stop_min": 45,
+      "risk_mult": 1.0,
+      "entry": {
+        "long": "Prior completed 5m bar closed below session VWAP; current 5m bar closes back above VWAP on bar volume >= vol_mult \u00d7 same-time-of-day 14-session avg (or 1.0\u00d7 if high-RVOL name path).",
+        "short": "Mirror: prior 5m closed above VWAP; current closes back below on qualifying volume."
+      },
+      "note": "EXPERIMENTAL. Negative out-of-sample as part of V2_full in backtest_results.csv. New in v2 to capture mean-reversion-to-trend after a VWAP dip without needing a full engulf/hammer.",
+      "experimental": true,
+      "context_mode": "v2",
+      "oos": "No standalone row. V2_full (includes R6 VWAP reclaim and R7 RVOL spike) OOS 2026-09-10..2026-10-06 pnl_usd -105.28, pnl_pct -10.53, profit_factor 0.47. V2_core_noR6R7 OOS pnl_usd -67.72. Adding R6/R7 made out-of-sample results worse."
+    },
+    "R7": {
+      "name": "Relative-volume spike continuation",
+      "enabled": true,
+      "sides": [
+        "long",
+        "short"
+      ],
+      "window_ct": [
+        "08:45",
+        "14:30"
+      ],
+      "spike_tod_rvol_min": 2.5,
+      "close_range_pctile_long_min": 0.75,
+      "close_range_pctile_short_max": 0.25,
+      "stop_mode": "mid_bar_or_025_daily_atr",
+      "stop_daily_atr_frac": 0.25,
+      "target_r": 2.0,
+      "time_stop_min": 60,
+      "risk_mult": 1.0,
+      "spy_not_opposing": true,
+      "entry": {
+        "long": "5m bar volume >= 2.5\u00d7 same-time-of-day 14-session avg AND close in top 25% of that bar's range AND SPY not opposing (SPY day chg >= -0.15% or SPY above VWAP).",
+        "short": "Mirror: volume spike + close in bottom 25% of range AND SPY not opposing (SPY day chg <= +0.15% or SPY below VWAP)."
+      },
+      "stop": "Long: stop at signal-bar midpoint OR entry - 0.25\u00d7 daily ATR14 (use the level closer to entry that still respects min_stop_pct). Short: mirror.",
+      "note": "EXPERIMENTAL. Negative out-of-sample as part of V2_full in backtest_results.csv. New in v2 \u2014 continuation on aggressive in-bar volume when the close confirms direction and SPY is not fighting the trade.",
+      "experimental": true,
+      "context_mode": "v2",
+      "oos": "No standalone row. V2_full (includes R6 VWAP reclaim and R7 RVOL spike) OOS 2026-09-10..2026-10-06 pnl_usd -105.28, pnl_pct -10.53, profit_factor 0.47. V2_core_noR6R7 OOS pnl_usd -67.72. Adding R6/R7 made out-of-sample results worse."
+    },
+    "NR7": {
+      "name": "NR7 / inside-day range breakout (EXPERIMENTAL)",
+      "enabled": true,
+      "experimental": true,
+      "oos": "NR7_inside_breakout OOS 2026-09-10..2026-10-06: pnl_usd -4.59, pnl_pct -0.46, win_rate 34.1, profit_factor 0.95, max_dd_pct 3.03 (backtest_results.csv). In-sample was also negative (pnl_usd -37.40).",
+      "sides": [
+        "long",
+        "short"
+      ],
+      "window_ct": [
+        "08:35",
+        "14:30"
+      ],
+      "stop_atr_frac": 0.25,
+      "target_r": 2.0,
+      "time_stop_min": 385,
+      "max_entries": 1,
+      "risk_mult": 1.0,
+      "skip_context": true,
+      "entry": "Prior session is NR7 or an inside day. After the opening 5 minutes, the first 1-minute bar that trades through the prior-day high (long) or prior-day low (short). Fill at that level, or at the bar open if the bar gapped through it.",
+      "stop": "0.25 x daily ATR14 beyond the fill, floored at 0.15% of price",
+      "exit": "2R target, else stop, else 14:55 CT flatten",
+      "source": "Crabel (1990) Day Trading with Short Term Price Patterns and Opening Range Breakout",
+      "note": "EXPERIMENTAL. Negative out-of-sample in backtest_results.csv. Stats are kept separate from R8."
+    }
+  },
+  "review": {
+    "drop_min_trades": 8,
+    "drop_max_winrate": 0.35,
+    "quickstop_min": 5,
+    "quickstop_frac": 0.5,
+    "quickstop_min_events": 2,
+    "widen_stop_factor": 1.25,
+    "max_stop_widen_total": 1.5,
+    "vol_mult_step": 0.25,
+    "vol_mult_max": 2.5,
+    "vol_mult_min": 1.2,
+    "loosen_after_reviews_without_trigger": 2,
+    "promote_min_trades": 8,
+    "promote_min_winrate": 0.6,
+    "risk_mult_step": 0.25,
+    "risk_mult_max": 1.5,
+    "timestop_min_events": 8,
+    "timestop_extend": 1.5,
+    "timestop_shrink": 0.75,
+    "timestop_max": 150,
+    "timestop_min": 20,
+    "portfolio_derisk_pct": 2.0,
+    "min_trades_for_change": 8,
+    "note": "No rule may be dropped, promoted, loosened, re-stopped, or time-stop-tuned until it has >= 8 closed trades. Per-rule stats stay separate, including EXPERIMENTAL rules. Every change is written to changes.csv with a reason."
+  }
+}
