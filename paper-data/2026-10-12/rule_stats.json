@@ -1,0 +1,83 @@
+{
+  "updated_ct": "2026-10-12 15:00:46 CDT",
+  "sessions_finalized": [
+    "2026-10-08",
+    "2026-10-09",
+    "2026-10-12"
+  ],
+  "rules": {
+    "R1": {
+      "closed": 0,
+      "wins": 0,
+      "pnl": 0.0,
+      "sum_r": 0.0,
+      "avg_r": null,
+      "sessions": []
+    },
+    "R2": {
+      "closed": 0,
+      "wins": 0,
+      "pnl": 0.0,
+      "sum_r": 0.0,
+      "avg_r": null,
+      "sessions": []
+    },
+    "R3": {
+      "closed": 0,
+      "wins": 0,
+      "pnl": 0.0,
+      "sum_r": 0.0,
+      "avg_r": null,
+      "sessions": []
+    },
+    "R4": {
+      "closed": 0,
+      "wins": 0,
+      "pnl": 0.0,
+      "sum_r": 0.0,
+      "avg_r": null,
+      "sessions": []
+    },
+    "R5": {
+      "closed": 0,
+      "wins": 0,
+      "pnl": 0.0,
+      "sum_r": 0.0,
+      "avg_r": null,
+      "sessions": []
+    },
+    "R6": {
+      "closed": 0,
+      "wins": 0,
+      "pnl": 0.0,
+      "sum_r": 0.0,
+      "avg_r": null,
+      "sessions": []
+    },
+    "R7": {
+      "closed": 0,
+      "wins": 0,
+      "pnl": 0.0,
+      "sum_r": 0.0,
+      "avg_r": null,
+      "sessions": []
+    },
+    "R8": {
+      "closed": 0,
+      "wins": 0,
+      "pnl": 0.0,
+      "sum_r": 0.0,
+      "avg_r": null,
+      "sessions": []
+    },
+    "NR7": {
+      "closed": 0,
+      "wins": 0,
+      "pnl": 0.0,
+      "sum_r": 0.0,
+      "avg_r": null,
+      "sessions": []
+    }
+  },
+  "note": "Cross-day closed-trade stats, one bucket per rule (R8 and EXPERIMENTAL NR7/R6/R7 stay separate). 8-trade minimum for any tweak counts across days. PAPER ONLY. First carried day = 2026-10-08 @ $1000; 2026-10-09 carried flat at $1000."
+}

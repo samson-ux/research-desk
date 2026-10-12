@@ -1,0 +1,120 @@
+{
+ "session_date": "2026-10-12",
+ "mode": "LIVE-PAPER",
+ "cash": 1000.0,
+ "equity": 1000.0,
+ "realized_pnl": 0.0,
+ "positions": {},
+ "closed": [],
+ "entries": {},
+ "last_stop_ts": {},
+ "halted": false,
+ "risk_scale": 1.0,
+ "reviews_done": [
+  "09:32",
+  "10:32",
+  "11:32",
+  "12:32",
+  "13:32",
+  "14:32"
+ ],
+ "no_trigger_reviews": {},
+ "hourly": [
+  {
+   "time": "13:32",
+   "equity": 1000.0,
+   "cash": 1000.0,
+   "realized": 0.0,
+   "open": 0,
+   "trades": 0,
+   "changes": 0
+  },
+  {
+   "time": "14:32",
+   "equity": 1000.0,
+   "cash": 1000.0,
+   "realized": 0.0,
+   "open": 0,
+   "trades": 0,
+   "changes": 0
+  }
+ ],
+ "last_prices": {
+  "NVDA": 226.4199981689453,
+  "AMD": 594.1400146484375,
+  "SHOP": 179.2100067138672,
+  "PANW": 403.8299865722656,
+  "CRWD": 263.0199890136719,
+  "MSFT": 541.1799926757812,
+  "TSLA": 378.0400085449219,
+  "MSTR": 152.7899932861328,
+  "AFRM": 78.62999725341797,
+  "UAL": 104.41000366210938,
+  "XOM": 172.0,
+  "OXY": 61.14500045776367,
+  "SPY": 778.0499877929688,
+  "QQQ": 746.02001953125,
+  "XLK": 196.36900329589844,
+  "XLF": 55.04499816894531,
+  "XLE": 66.0199966430664,
+  "XLV": 171.97999572753906,
+  "XLY": 112.2699966430664,
+  "XLI": 169.14999389648438,
+  "SMH": 590.5
+ },
+ "errors": 0,
+ "loops": 108,
+ "started": "2026-10-12T13:05:00.783630-05:00",
+ "stalls": [
+  {
+   "start": "13:18",
+   "end": "13:26",
+   "minutes": 8.5,
+   "missed_windows": [
+    "R6",
+    "R7",
+    "NR7"
+   ]
+  }
+ ],
+ "missed_entry_window": true,
+ "last_loop_ct": "2026-10-12T14:59:39.298802-05:00",
+ "startup_warnings": [
+  "STARTUP: Job B started at 2026-10-12 13:05:18 CDT, after its entry window opened at 11:25 CT. No backfill of missed entry windows."
+ ],
+ "job": "B",
+ "jobs_seen": [
+  "B"
+ ],
+ "yahoo_blocked": false,
+ "paper_only": true,
+ "last_update": "2026-10-12T15:00:46.617867-05:00",
+ "pending_setups": [],
+ "seen5": {
+  "NVDA|R6": 1791833100,
+  "NVDA|R7": 1791833100,
+  "AMD|R6": 1791833100,
+  "AMD|R7": 1791833100,
+  "SHOP|R6": 1791833100,
+  "SHOP|R7": 1791833100,
+  "PANW|R6": 1791833100,
+  "PANW|R7": 1791833100,
+  "CRWD|R6": 1791833100,
+  "CRWD|R7": 1791833100,
+  "MSFT|R6": 1791833100,
+  "MSFT|R7": 1791833100,
+  "TSLA|R6": 1791833100,
+  "TSLA|R7": 1791833100,
+  "MSTR|R6": 1791833100,
+  "MSTR|R7": 1791833100,
+  "AFRM|R6": 1791833100,
+  "AFRM|R7": 1791833100,
+  "UAL|R6": 1791833100,
+  "UAL|R7": 1791833100,
+  "XOM|R6": 1791833100,
+  "XOM|R7": 1791833100,
+  "OXY|R6": 1791833100,
+  "OXY|R7": 1791833100
+ },
+ "job_b_complete": true
+}
