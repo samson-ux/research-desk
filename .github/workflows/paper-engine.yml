@@ -1,17 +1,11 @@
 # PAPER-ONLY intraday engine. No broker, no orders.
-# GitHub cron is UTC and can lag, so each Chicago instant is scheduled at both
-# the CDT (UTC-5) and CST (UTC-6) offset. The job guards on America/Chicago
-# and skips the off-season duplicate, weekends, and NYSE holidays.
+# The live session is started by a daily routine. This workflow has no cron:
+# a late schedule run overwrote a finished paper-data day. workflow_dispatch
+# remains for a manual live run or a Yahoo replay. The job still guards on
+# America/Chicago and skips weekends and NYSE holidays.
 name: paper-engine
 
 on:
-  schedule:
-    # Job A ~07:50 America/Chicago. CDT = 12:50 UTC, CST = 13:50 UTC.
-    - cron: "50 12 * * 1-5"
-    - cron: "50 13 * * 1-5"
-    # Job B ~11:25 America/Chicago. CDT = 16:25 UTC, CST = 17:25 UTC.
-    - cron: "25 16 * * 1-5"
-    - cron: "25 17 * * 1-5"
   workflow_dispatch:
     inputs:
       replay_date:
@@ -25,7 +19,7 @@ on:
         type: boolean
         default: false
       job:
-        description: "Which session to run. Live cron ignores this and uses the clock."
+        description: "Which session to run."
         required: true
         type: choice
         options:
@@ -44,11 +38,7 @@ concurrency:
 jobs:
   job-a:
     name: job-a morning
-    if: >-
-      ${{
-        (github.event_name == 'workflow_dispatch' && (inputs.job == 'both' || inputs.job == 'A'))
-        || (github.event_name == 'schedule' && (github.event.schedule == '50 12 * * 1-5' || github.event.schedule == '50 13 * * 1-5'))
-      }}
+    if: ${{ github.event_name == 'workflow_dispatch' && (inputs.job == 'both' || inputs.job == 'A') }}
     runs-on: ubuntu-latest
     timeout-minutes: 330
     steps:
@@ -89,7 +79,7 @@ jobs:
           if-no-files-found: ignore
           retention-days: 5
       - name: Publish paper-data
-        if: steps.run.outcome == 'success' && (github.event_name == 'schedule' || inputs.dry_run == false)
+        if: steps.run.outcome == 'success' && inputs.dry_run == false
         env:
           REPLAY_DATE: ${{ inputs.replay_date }}
         run: |
@@ -106,10 +96,7 @@ jobs:
     if: >-
       ${{
         always() && needs.job-a.result != 'cancelled' &&
-        (
-          (github.event_name == 'workflow_dispatch' && (inputs.job == 'both' || inputs.job == 'B'))
-          || (github.event_name == 'schedule' && (github.event.schedule == '25 16 * * 1-5' || github.event.schedule == '25 17 * * 1-5'))
-        )
+        github.event_name == 'workflow_dispatch' && (inputs.job == 'both' || inputs.job == 'B')
       }}
     runs-on: ubuntu-latest
     timeout-minutes: 330
@@ -149,7 +136,7 @@ jobs:
         env:
           REPLAY_DATE: ${{ inputs.replay_date }}
       - name: Publish paper-data
-        if: steps.run.outcome == 'success' && (github.event_name == 'schedule' || inputs.dry_run == false)
+        if: steps.run.outcome == 'success' && inputs.dry_run == false
         env:
           REPLAY_DATE: ${{ inputs.replay_date }}
         run: |
