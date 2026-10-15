@@ -3,6 +3,9 @@
 import argparse, os, shutil, subprocess, sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from lib_finalize import traded_overwrite_reason  # noqa: E402
+
 DAY_FILES = (
     "state.json",
     "trades.csv",
@@ -56,6 +59,15 @@ def publish(repo, data_root, session_date):
 
     dest_root = wd / "paper-data"
     dest_day = dest_root / session_date
+    refusal = traded_overwrite_reason(
+        session_date,
+        day_dir=dest_day,
+        ledger_paths=[dest_root / "ledger.csv", dest_day / "ledger.csv"],
+    )
+    if refusal:
+        print(refusal)
+        subprocess.run(["git", "worktree", "remove", "--force", str(wd)], cwd=repo, check=False)
+        return 2
     dest_day.mkdir(parents=True, exist_ok=True)
     for name in DAY_FILES:
         src = day / name

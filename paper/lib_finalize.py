@@ -2,6 +2,7 @@
 """PAPER-ONLY finalize: ledger + per-rule stats + EOD tweaks. Idempotent per session date.
 
 No rule parameter changes until that rule has at least 8 closed trades.
+A ledger row that already has trades is left untouched.
 """
 import csv, json, os, sys
 from datetime import datetime
@@ -9,6 +10,66 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 CT = ZoneInfo("America/Chicago")
+
+
+def _as_int(value):
+    try:
+        return int(float(str(value).strip() or 0))
+    except (TypeError, ValueError):
+        return 0
+
+
+def ledger_trade_count(ledger_path, session_date):
+    """Trade count on the ledger row for session_date, or None if that date is absent."""
+    path = Path(ledger_path)
+    if not path.is_file() or path.stat().st_size == 0:
+        return None
+    with path.open(newline="") as f:
+        rows = list(csv.DictReader(f))
+    found = None
+    for row in rows:
+        if (row.get("date") or "").strip() == session_date:
+            found = _as_int(row.get("trades"))
+    return found
+
+
+def day_folder_has_trades(day_dir, session_date=None):
+    """True when a paper-data/YYYY-MM-DD folder already recorded fills or a traded ledger row."""
+    day = Path(day_dir)
+    if not day.is_dir():
+        return False
+    date = session_date or day.name
+    trades = day / "trades.csv"
+    if trades.is_file() and trades.stat().st_size:
+        with trades.open(newline="") as f:
+            for row in csv.DictReader(f):
+                if any((value or "").strip() for value in row.values()):
+                    return True
+    state_path = day / "state.json"
+    if state_path.is_file():
+        try:
+            state = json.loads(state_path.read_text())
+        except json.JSONDecodeError:
+            state = {}
+        if state.get("closed") or state.get("positions"):
+            return True
+    count = ledger_trade_count(day / "ledger.csv", date)
+    return count is not None and count > 0
+
+
+def traded_overwrite_reason(session_date, day_dir=None, ledger_paths=()):
+    """Why an existing paper-data day or ledger row must be left alone, or None."""
+    reasons = []
+    if day_dir is not None and day_folder_has_trades(day_dir, session_date):
+        reasons.append(f"paper-data/{session_date} already has trades")
+    for path in ledger_paths:
+        count = ledger_trade_count(path, session_date)
+        if count is not None and count > 0:
+            reasons.append(f"ledger row {session_date} already has {count} trades")
+            break
+    if not reasons:
+        return None
+    return "REFUSE: not overwriting " + "; ".join(reasons)
 
 
 def main(date, live_dir, day_dir):
@@ -35,6 +96,10 @@ def main(date, live_dir, day_dir):
     wins = sum(1 for c in closed if float(c.get("pnl", 0)) > 0)
 
     ledger_path = live / "ledger.csv"
+    refusal = traded_overwrite_reason(date, ledger_paths=[ledger_path, day / "ledger.csv"])
+    if refusal:
+        print(refusal)
+        raise SystemExit(2)
     cols = ["date", "start_equity", "end_equity", "pnl_usd", "pnl_pct", "trades", "wins", "rules_version"]
     rows = list(csv.DictReader(ledger_path.open())) if ledger_path.exists() else []
     new_row = {
