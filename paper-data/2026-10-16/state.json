@@ -1,0 +1,87 @@
+{
+ "session_date": "2026-10-16",
+ "mode": "LIVE-PAPER",
+ "cash": 1000.7988,
+ "equity": 1000.7988,
+ "realized_pnl": 0.0,
+ "positions": {},
+ "closed": [],
+ "entries": {},
+ "last_stop_ts": {},
+ "halted": false,
+ "risk_scale": 1.0,
+ "reviews_done": [
+  "09:32",
+  "10:32",
+  "11:32",
+  "12:32",
+  "13:32",
+  "14:32"
+ ],
+ "no_trigger_reviews": {},
+ "hourly": [
+  {
+   "time": "14:37",
+   "equity": 1000.8,
+   "cash": 1000.8,
+   "realized": 0.0,
+   "open": 0,
+   "trades": 0,
+   "changes": 0
+  }
+ ],
+ "last_prices": {
+  "NVDA": 214.3300018310547,
+  "AMD": 529.1300048828125,
+  "SHOP": 169.44000244140625,
+  "PANW": 341.8900146484375,
+  "CRWD": 227.27000427246094,
+  "MSFT": 529.2899780273438,
+  "TSLA": 354.7200012207031,
+  "MSTR": 136.48500061035156,
+  "AFRM": 73.94999694824219,
+  "UAL": 96.16300201416016,
+  "XOM": 179.00999450683594,
+  "OXY": 62.35499954223633,
+  "SPY": 763.5399780273438,
+  "QQQ": 710.3699951171875,
+  "XLK": 183.55999755859375,
+  "XLF": 55.505001068115234,
+  "XLE": 68.24500274658203,
+  "XLV": 176.64500427246094,
+  "XLY": 112.48500061035156,
+  "XLI": 167.6699981689453,
+  "SMH": 540.3499755859375
+ },
+ "errors": 0,
+ "loops": 24,
+ "started": "2026-10-16T14:36:47.239887-05:00",
+ "stalls": [
+  {
+   "start": "startup",
+   "end": "14:37",
+   "minutes": null,
+   "missed_windows": [
+    "R6",
+    "R7",
+    "NR7"
+   ],
+   "startup": true
+  }
+ ],
+ "missed_entry_window": true,
+ "last_loop_ct": "2026-10-16T14:59:04.643739-05:00",
+ "startup_warnings": [
+  "STARTUP: Job B started at 2026-10-16 14:37:04 CDT, after its entry window opened at 11:25 CT. No backfill of missed entry windows."
+ ],
+ "job": "B",
+ "jobs_seen": [
+  "B"
+ ],
+ "yahoo_blocked": false,
+ "paper_only": true,
+ "last_update": "2026-10-16T15:00:12.381255-05:00",
+ "pending_setups": [],
+ "seen5": {},
+ "job_b_complete": true
+}
