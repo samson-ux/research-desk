@@ -1,5 +1,5 @@
 {
-  "version": 4,
+  "version": 5,
   "paper_only": true,
   "session_date": "CARRIED",
   "derived_from": "rules_v3 R8 gap fade + experimental NR7 (Crabel) and rules_v2 R6/R7",
@@ -317,7 +317,7 @@
     },
     "R7": {
       "name": "Relative-volume spike continuation",
-      "enabled": true,
+      "enabled": false,
       "sides": [
         "long",
         "short"

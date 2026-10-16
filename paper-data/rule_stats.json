@@ -1,5 +1,5 @@
 {
-  "updated_ct": "2026-10-16 15:00:12 CDT",
+  "updated_ct": "2026-10-16 15:00:24 CDT",
   "sessions_finalized": [
     "2026-10-08",
     "2026-10-09",
@@ -59,32 +59,36 @@
       ]
     },
     "R7": {
-      "closed": 4,
-      "wins": 1,
-      "pnl": -2.475912438147279,
-      "sum_r": -2.9114218320367287,
-      "avg_r": -0.7279,
+      "closed": 13,
+      "wins": 4,
+      "pnl": -2.6299919716240865,
+      "sum_r": -4.810961142615147,
+      "avg_r": -0.3701,
       "sessions": [
-        "2026-10-15"
+        "2026-10-15",
+        "2026-10-16"
       ]
     },
     "R8": {
-      "closed": 2,
-      "wins": 1,
-      "pnl": 2.842654696985686,
-      "sum_r": 0.34951171693340527,
-      "avg_r": 0.1748,
+      "closed": 3,
+      "wins": 2,
+      "pnl": 6.3968569035210585,
+      "sum_r": 1.1311160811375511,
+      "avg_r": 0.377,
       "sessions": [
-        "2026-10-15"
+        "2026-10-15",
+        "2026-10-16"
       ]
     },
     "NR7": {
-      "closed": 0,
+      "closed": 2,
       "wins": 0,
-      "pnl": 0.0,
-      "sum_r": 0.0,
-      "avg_r": null,
-      "sessions": []
+      "pnl": -7.616493926576398,
+      "sum_r": -2.097680982824234,
+      "avg_r": -1.0488,
+      "sessions": [
+        "2026-10-16"
+      ]
     }
   },
   "note": "Cross-day closed-trade stats, one bucket per rule (R8 and EXPERIMENTAL NR7/R6/R7 stay separate). 8-trade minimum for any tweak counts across days. PAPER ONLY. First carried day = 2026-10-08 @ $1000; 2026-10-09 carried flat at $1000."
