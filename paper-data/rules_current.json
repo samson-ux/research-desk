@@ -1,5 +1,5 @@
 {
-  "version": 5,
+  "version": 6,
   "paper_only": true,
   "session_date": "CARRIED",
   "derived_from": "rules_v3 R8 gap fade + experimental NR7 (Crabel) and rules_v2 R6/R7",
@@ -280,7 +280,7 @@
       "target_r": 0,
       "time_stop_min": 385,
       "max_entries": 1,
-      "risk_mult": 1.0,
+      "risk_mult": 1.25,
       "skip_context": true,
       "vol_mult": 0,
       "entry": "Gap up 1-3% vs prior close AND first 5-min bar (8:30-8:35 CT) closes red -> SHORT at latest 1m close; gap down 1-3% AND first bar green -> LONG. Evaluated once per ticker per day.",
@@ -291,7 +291,7 @@
     },
     "R6": {
       "name": "5-min VWAP reclaim",
-      "enabled": true,
+      "enabled": false,
       "sides": [
         "long",
         "short"
@@ -347,7 +347,7 @@
     },
     "NR7": {
       "name": "NR7 / inside-day range breakout (EXPERIMENTAL)",
-      "enabled": true,
+      "enabled": false,
       "experimental": true,
       "oos": "NR7_inside_breakout OOS 2026-09-10..2026-10-06: pnl_usd -4.59, pnl_pct -0.46, win_rate 34.1, profit_factor 0.95, max_dd_pct 3.03 (backtest_results.csv). In-sample was also negative (pnl_usd -37.40).",
       "sides": [

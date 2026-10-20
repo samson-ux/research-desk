@@ -1,0 +1,4 @@
+time_ct,rule_id,param,old_value,new_value,why
+2026-10-20 15:00:45 CDT,R8,risk_mult,1.0,1.25,"EOD cumulative: EOD T4 cumulative: 9 trades, win 67%, P&L $11.41 -> more risk"
+2026-10-20 15:00:45 CDT,R6,enabled,True,False,"EOD cumulative: EOD T1 cumulative: 8 trades, win 25% < 35%, P&L $-2.56"
+2026-10-20 15:00:45 CDT,NR7,enabled,True,False,"EOD cumulative: EOD T1 cumulative: 11 trades, win 27% < 35%, P&L $-11.77"
