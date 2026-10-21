@@ -1,0 +1,188 @@
+{
+ "session_date": "2026-10-21",
+ "mode": "LIVE-PAPER",
+ "cash": 636.3619669077702,
+ "equity": 984.9646,
+ "realized_pnl": -10.035558730962803,
+ "positions": {
+  "NVDA": {
+   "ticker": "NVDA",
+   "side": "short",
+   "rule": "R8",
+   "entry_ts": 1792589640,
+   "entry_time_ct": "08:35:09",
+   "entry_price": 220.28979389953614,
+   "shares": 1.58,
+   "notional": 348.0578743612671,
+   "stop": 222.44889646257673,
+   "target": 216.47000122070312,
+   "risk_per_share": 2.159102563040591,
+   "time_stop_min": 385,
+   "last_checked": 1792600080,
+   "reason": "gap fade: gap +2.07% (open 220.96 vs prev close 216.47), first 5m bar red; target prev close"
+  }
+ },
+ "closed": [
+  {
+   "ticker": "CRWD",
+   "side": "short",
+   "rule": "R8",
+   "pnl": -4.42362025963648,
+   "r": -1.0414708543006697,
+   "reason": "STOP",
+   "hold_min": 3.0,
+   "entry_time": "08:35:09",
+   "exit_time": "08:41:09",
+   "entry": 230.26481488037112,
+   "exit": 233.19145746034894,
+   "shares": 1.5115,
+   "notional": 348.045267691681
+  },
+  {
+   "ticker": "MSTR",
+   "side": "short",
+   "rule": "R8",
+   "pnl": -5.611938471326323,
+   "r": -1.027821125471803,
+   "reason": "STOP",
+   "hold_min": 13.0,
+   "entry_time": "08:35:09",
+   "exit_time": "08:48:58",
+   "entry": 144.45773377990724,
+   "exit": 147.17498477072036,
+   "shares": 2.0653,
+   "notional": 298.3485575756425
+  }
+ ],
+ "entries": {
+  "NVDA|R8": 1,
+  "CRWD|R8": 1,
+  "MSTR|R8": 1
+ },
+ "last_stop_ts": {
+  "CRWD": 1792589880,
+  "MSTR": 1792590480
+ },
+ "halted": false,
+ "risk_scale": 1.0,
+ "reviews_done": [
+  "09:32",
+  "10:32"
+ ],
+ "no_trigger_reviews": {},
+ "hourly": [
+  {
+   "time": "09:32",
+   "equity": 986.77,
+   "cash": 636.36,
+   "realized": -10.04,
+   "open": 1,
+   "trades": 2,
+   "changes": 0
+  },
+  {
+   "time": "10:32",
+   "equity": 984.57,
+   "cash": 636.36,
+   "realized": -10.04,
+   "open": 1,
+   "trades": 2,
+   "changes": 0
+  }
+ ],
+ "last_prices": {
+  "ANET": 181.32000732421875,
+  "MU": 910.260009765625,
+  "LRCX": 266.0299987792969,
+  "HOOD": 102.2499008178711,
+  "CAT": 736.1199951171875,
+  "ORCL": 129.94509887695312,
+  "LLY": 1269.56005859375,
+  "SPY": 772.1599731445312,
+  "QQQ": 725.02001953125,
+  "XLK": 187.97500610351562,
+  "XLF": 56.05500030517578,
+  "XLE": 68.05500030517578,
+  "XLV": 178.4600067138672,
+  "XLY": 115.69000244140625,
+  "XLI": 168.1300048828125,
+  "SMH": 555.0599975585938,
+  "NVDA": 219.94500732421875,
+  "AMD": 549.3150024414062,
+  "SHOP": 177.48500061035156,
+  "PANW": 351.2900085449219,
+  "CRWD": 237.55499267578125,
+  "MSFT": 531.6799926757812,
+  "TSLA": 386.3800048828125,
+  "MSTR": 153.98500061035156,
+  "AFRM": 74.73999786376953,
+  "UAL": 102.51000213623047,
+  "OXY": 62.81999969482422,
+  "COIN": 178.49000549316406,
+  "XOM": 177.69500732421875
+ },
+ "errors": 0,
+ "loops": 156,
+ "started": "2026-10-21T08:11:48.462713-05:00",
+ "stalls": [
+  {
+   "start": "08:36",
+   "end": "08:40",
+   "minutes": 4.8,
+   "missed_windows": [
+    "R8"
+   ]
+  },
+  {
+   "start": "startup",
+   "end": "09:26",
+   "minutes": null,
+   "missed_windows": [
+    "R8"
+   ],
+   "startup": true
+  },
+  {
+   "start": "08:54",
+   "end": "09:26",
+   "minutes": 31.8,
+   "missed_windows": []
+  }
+ ],
+ "missed_entry_window": true,
+ "last_loop_ct": "2026-10-21T11:29:39.977257-05:00",
+ "startup_warnings": [
+  "STARTUP: Job A started at 2026-10-21 09:26:39 CDT, after its entry window opened at 08:20 CT. No backfill of missed entry windows."
+ ],
+ "job": "A",
+ "jobs_seen": [
+  "A"
+ ],
+ "yahoo_blocked": false,
+ "paper_only": true,
+ "last_update": "2026-10-21T11:30:39.977537-05:00",
+ "pending_setups": [],
+ "seen5": {
+  "NVDA|R8": 1792589400,
+  "AMD|R8": 1792589400,
+  "SHOP|R8": 1792589400,
+  "PANW|R8": 1792589400,
+  "CRWD|R8": 1792589400,
+  "MSFT|R8": 1792589400,
+  "TSLA|R8": 1792589400,
+  "MSTR|R8": 1792589400,
+  "AFRM|R8": 1792589400,
+  "UAL|R8": 1792589400,
+  "XOM|R8": 1792589400,
+  "OXY|R8": 1792589400,
+  "ANET|R8": 1792589400,
+  "MU|R8": 1792589400,
+  "LRCX|R8": 1792589400,
+  "COIN|R8": 1792589400,
+  "HOOD|R8": 1792589400,
+  "CAT|R8": 1792589400,
+  "ORCL|R8": 1792589400,
+  "LLY|R8": 1792589400
+ },
+ "job_a_complete": true
+}
