@@ -1,0 +1,218 @@
+{
+ "session_date": "2026-10-22",
+ "mode": "LIVE-PAPER",
+ "cash": 976.931519441678,
+ "equity": 976.9315,
+ "realized_pnl": -5.164080558321917,
+ "positions": {},
+ "closed": [
+  {
+   "ticker": "AFRM",
+   "side": "long",
+   "rule": "R8",
+   "pnl": 1.9009991800262485,
+   "r": 0.5829714835597537,
+   "reason": "TARGET",
+   "hold_min": 3.0,
+   "entry_time": "08:35:09",
+   "exit_time": "08:37:09",
+   "entry": 73.09152780532837,
+   "exit": 73.56309934234619,
+   "shares": 4.0312,
+   "notional": 294.64656688883974
+  },
+  {
+   "ticker": "CRWD",
+   "side": "short",
+   "rule": "R8",
+   "pnl": -3.952659447704689,
+   "r": -1.0459803574144508,
+   "reason": "STOP",
+   "hold_min": 9.0,
+   "entry_time": "08:35:09",
+   "exit_time": "08:45:00",
+   "entry": 242.5086898803711,
+   "exit": 245.29735888538357,
+   "shares": 1.4174,
+   "notional": 343.731817036438
+  },
+  {
+   "ticker": "NVDA",
+   "side": "long",
+   "rule": "R8",
+   "pnl": -3.112420290643476,
+   "r": -1.0579142932880823,
+   "reason": "STOP",
+   "hold_min": 14.0,
+   "entry_time": "08:35:09",
+   "exit_time": "08:49:00",
+   "entry": 218.3141043319702,
+   "exit": 216.3372113628115,
+   "shares": 1.5744,
+   "notional": 343.71372586025393
+  }
+ ],
+ "entries": {
+  "NVDA|R8": 1,
+  "CRWD|R8": 1,
+  "AFRM|R8": 1
+ },
+ "last_stop_ts": {
+  "CRWD": 1792676640,
+  "NVDA": 1792676880
+ },
+ "halted": false,
+ "risk_scale": 1.0,
+ "reviews_done": [
+  "09:32",
+  "10:32"
+ ],
+ "no_trigger_reviews": {},
+ "hourly": [],
+ "last_prices": {
+  "SHOP": 170.8699951171875,
+  "CRWD": 240.35499572753906,
+  "MSFT": 526.5800170898438,
+  "TSLA": 380.5799865722656,
+  "MSTR": 146.97000122070312,
+  "AFRM": 72.04000091552734,
+  "UAL": 102.69000244140625,
+  "XOM": 176.2899932861328,
+  "OXY": 62.07500076293945,
+  "TXN": 282.1499938964844,
+  "META": 651.4000244140625,
+  "DAL": 78.80000305175781,
+  "LLY": 1315.5,
+  "QCOM": 174.99749755859375,
+  "UNH": 425.8599853515625,
+  "SPY": 765.4299926757812,
+  "QQQ": 709.4299926757812,
+  "XLK": 183.34010314941406,
+  "XLF": 56.595001220703125,
+  "XLE": 66.94499969482422,
+  "XLV": 181.9600067138672,
+  "XLY": 115.37000274658203,
+  "XLI": 166.20970153808594,
+  "SMH": 529.405029296875,
+  "NVDA": 213.89999389648438,
+  "AMD": 514.5700073242188,
+  "PANW": 361.2699890136719,
+  "ORCL": 126.08059692382812,
+  "RTX": 191.6750030517578
+ },
+ "errors": 0,
+ "loops": 57,
+ "started": "2026-10-22T08:15:19.029399-05:00",
+ "stalls": [
+  {
+   "start": "08:38",
+   "end": "08:42",
+   "minutes": 4.9,
+   "missed_windows": [
+    "R8"
+   ]
+  },
+  {
+   "start": "supervisor",
+   "end": "10:15",
+   "minutes": 78.7,
+   "missed_windows": [],
+   "supervisor": true,
+   "job": "A",
+   "reason": "Job A engine.log stale for 4723s (limit 480s, trading_loop=True); restart #1"
+  },
+  {
+   "start": "supervisor",
+   "end": "10:15",
+   "minutes": 78.8,
+   "missed_windows": [],
+   "supervisor": true,
+   "job": "A",
+   "reason": "Job A engine.log stale for 4728s (limit 480s, trading_loop=True); restart #2"
+  },
+  {
+   "start": "supervisor",
+   "end": "10:16",
+   "minutes": 79.3,
+   "missed_windows": [],
+   "supervisor": true,
+   "job": "A",
+   "reason": "Job A engine.log stale for 4758s (limit 480s, trading_loop=True); restart #3"
+  },
+  {
+   "start": "supervisor",
+   "end": "10:16",
+   "minutes": 79.8,
+   "missed_windows": [],
+   "supervisor": true,
+   "job": "A",
+   "reason": "Job A engine.log stale for 4788s (limit 480s, trading_loop=True); restart #4"
+  },
+  {
+   "start": "supervisor",
+   "end": "10:17",
+   "minutes": 80.3,
+   "missed_windows": [],
+   "supervisor": true,
+   "job": "A",
+   "reason": "Job A engine.log stale for 4818s (limit 480s, trading_loop=True); restart #5"
+  },
+  {
+   "start": "startup",
+   "end": "10:18",
+   "minutes": null,
+   "missed_windows": [
+    "R8"
+   ],
+   "startup": true
+  },
+  {
+   "start": "08:56",
+   "end": "10:18",
+   "minutes": 81.2,
+   "missed_windows": []
+  },
+  {
+   "start": "10:30",
+   "end": "11:20",
+   "minutes": 50.4,
+   "missed_windows": []
+  }
+ ],
+ "missed_entry_window": true,
+ "last_loop_ct": "2026-10-22T11:29:27.576452-05:00",
+ "startup_warnings": [
+  "STARTUP: Job A started at 2026-10-22 10:18:03 CDT, after its entry window opened at 08:20 CT. No backfill of missed entry windows."
+ ],
+ "job": "A",
+ "jobs_seen": [
+  "A"
+ ],
+ "yahoo_blocked": false,
+ "paper_only": true,
+ "last_update": "2026-10-22T11:30:27.576617-05:00",
+ "pending_setups": [],
+ "seen5": {
+  "NVDA|R8": 1792675800,
+  "AMD|R8": 1792675800,
+  "SHOP|R8": 1792675800,
+  "PANW|R8": 1792675800,
+  "CRWD|R8": 1792675800,
+  "MSFT|R8": 1792675800,
+  "TSLA|R8": 1792675800,
+  "MSTR|R8": 1792675800,
+  "AFRM|R8": 1792675800,
+  "UAL|R8": 1792675800,
+  "XOM|R8": 1792675800,
+  "OXY|R8": 1792675800,
+  "TXN|R8": 1792675800,
+  "META|R8": 1792675800,
+  "ORCL|R8": 1792675800,
+  "DAL|R8": 1792675800,
+  "LLY|R8": 1792675800,
+  "RTX|R8": 1792675800,
+  "QCOM|R8": 1792675800,
+  "UNH|R8": 1792675800
+ },
+ "job_a_complete": true
+}
