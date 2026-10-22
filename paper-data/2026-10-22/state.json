@@ -65,43 +65,84 @@
  "risk_scale": 1.0,
  "reviews_done": [
   "09:32",
-  "10:32"
+  "10:32",
+  "11:32",
+  "12:32",
+  "13:32",
+  "14:32"
  ],
  "no_trigger_reviews": {},
- "hourly": [],
+ "hourly": [
+  {
+   "time": "11:32",
+   "equity": 976.93,
+   "cash": 976.93,
+   "realized": -5.16,
+   "open": 0,
+   "trades": 3,
+   "changes": 0
+  },
+  {
+   "time": "12:32",
+   "equity": 976.93,
+   "cash": 976.93,
+   "realized": -5.16,
+   "open": 0,
+   "trades": 3,
+   "changes": 0
+  },
+  {
+   "time": "13:32",
+   "equity": 976.93,
+   "cash": 976.93,
+   "realized": -5.16,
+   "open": 0,
+   "trades": 3,
+   "changes": 0
+  },
+  {
+   "time": "14:33",
+   "equity": 976.93,
+   "cash": 976.93,
+   "realized": -5.16,
+   "open": 0,
+   "trades": 3,
+   "changes": 0
+  }
+ ],
  "last_prices": {
-  "SHOP": 170.8699951171875,
-  "CRWD": 240.35499572753906,
-  "MSFT": 526.5800170898438,
-  "TSLA": 380.5799865722656,
-  "MSTR": 146.97000122070312,
-  "AFRM": 72.04000091552734,
-  "UAL": 102.69000244140625,
-  "XOM": 176.2899932861328,
-  "OXY": 62.07500076293945,
-  "TXN": 282.1499938964844,
-  "META": 651.4000244140625,
-  "DAL": 78.80000305175781,
-  "LLY": 1315.5,
-  "QCOM": 174.99749755859375,
-  "UNH": 425.8599853515625,
-  "SPY": 765.4299926757812,
-  "QQQ": 709.4299926757812,
-  "XLK": 183.34010314941406,
-  "XLF": 56.595001220703125,
-  "XLE": 66.94499969482422,
-  "XLV": 181.9600067138672,
-  "XLY": 115.37000274658203,
-  "XLI": 166.20970153808594,
-  "SMH": 529.405029296875,
-  "NVDA": 213.89999389648438,
-  "AMD": 514.5700073242188,
-  "PANW": 361.2699890136719,
-  "ORCL": 126.08059692382812,
-  "RTX": 191.6750030517578
+  "SHOP": 168.875,
+  "CRWD": 237.94000244140625,
+  "MSFT": 520.875,
+  "TSLA": 375.42999267578125,
+  "MSTR": 145.60499572753906,
+  "AFRM": 72.33999633789062,
+  "UAL": 101.91999816894531,
+  "XOM": 177.9199981689453,
+  "OXY": 62.439998626708984,
+  "TXN": 279.5400085449219,
+  "META": 648.4600219726562,
+  "DAL": 79.11499786376953,
+  "LLY": 1307.6650390625,
+  "QCOM": 172.94000244140625,
+  "UNH": 425.2149963378906,
+  "SPY": 763.5800170898438,
+  "QQQ": 704.239990234375,
+  "XLK": 182.22000122070312,
+  "XLF": 56.630001068115234,
+  "XLE": 67.53500366210938,
+  "XLV": 181.31500244140625,
+  "XLY": 115.01000213623047,
+  "XLI": 166.59500122070312,
+  "SMH": 523.0999755859375,
+  "NVDA": 212.07000732421875,
+  "AMD": 508.1700134277344,
+  "PANW": 354.5,
+  "ORCL": 125.33999633789062,
+  "RTX": 194.47000122070312
  },
  "errors": 0,
- "loops": 57,
+ "loops": 236,
  "started": "2026-10-22T08:15:19.029399-05:00",
  "stalls": [
   {
@@ -177,20 +218,28 @@
    "end": "11:20",
    "minutes": 50.4,
    "missed_windows": []
+  },
+  {
+   "start": "14:01",
+   "end": "14:33",
+   "minutes": 31.6,
+   "missed_windows": []
   }
  ],
  "missed_entry_window": true,
- "last_loop_ct": "2026-10-22T11:29:27.576452-05:00",
+ "last_loop_ct": "2026-10-22T14:59:11.301340-05:00",
  "startup_warnings": [
-  "STARTUP: Job A started at 2026-10-22 10:18:03 CDT, after its entry window opened at 08:20 CT. No backfill of missed entry windows."
+  "STARTUP: Job A started at 2026-10-22 10:18:03 CDT, after its entry window opened at 08:20 CT. No backfill of missed entry windows.",
+  "STARTUP: Job B started at 2026-10-22 11:31:10 CDT, after its entry window opened at 11:25 CT. No backfill of missed entry windows."
  ],
- "job": "A",
+ "job": "B",
  "jobs_seen": [
-  "A"
+  "A",
+  "B"
  ],
  "yahoo_blocked": false,
  "paper_only": true,
- "last_update": "2026-10-22T11:30:27.576617-05:00",
+ "last_update": "2026-10-22T15:00:21.125644-05:00",
  "pending_setups": [],
  "seen5": {
   "NVDA|R8": 1792675800,
@@ -214,5 +263,6 @@
   "QCOM|R8": 1792675800,
   "UNH|R8": 1792675800
  },
- "job_a_complete": true
+ "job_a_complete": true,
+ "job_b_complete": true
 }

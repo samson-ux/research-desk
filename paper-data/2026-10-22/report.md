@@ -2,16 +2,15 @@
 
 No broker. No orders. No real money. Prices are Yahoo chart bars only.
 
-Interim report — this session is not finalized yet.
-
 Day P&L: $-5.16 (-0.526%)  |  equity $982.10 -> $976.93
 Trades: 3  wins: 1  win rate: 33%
-Rules version (day): 6  mode: LIVE-PAPER  job: A  jobs: ['A']  halted: False
+Rules version (day): 6  mode: LIVE-PAPER  job: B  jobs: ['A', 'B']  halted: False
 Open positions at report time: 0
 
 ## Startup
 
 - STARTUP: Job A started at 2026-10-22 10:18:03 CDT, after its entry window opened at 08:20 CT. No backfill of missed entry windows.
+- STARTUP: Job B started at 2026-10-22 11:31:10 CDT, after its entry window opened at 11:25 CT. No backfill of missed entry windows.
 
 ## Stall / missed window (no backfill)
 
@@ -24,6 +23,7 @@ Open positions at report time: 0
 - STALL: None min gap (startup–10:18 CT) missed_windows=['R8']
 - STALL: 81.2 min gap (08:56–10:18 CT) missed_windows=[]
 - STALL: 50.4 min gap (10:30–11:20 CT) missed_windows=[]
+- STALL: 31.6 min gap (14:01–14:33 CT) missed_windows=[]
 - missed_entry_window: True
 
 ## Trades
@@ -40,8 +40,8 @@ Open positions at report time: 0
 
 ## Cumulative paper account
 
-Sessions: 8  start $1000.00 -> $982.10  total P&L $-17.90 (-1.790%)
-Cumulative trades: 44  wins: 15  win rate: 34%
+Sessions: 9  start $1000.00 -> $976.93  total P&L $-23.07 (-2.307%)
+Cumulative trades: 47  wins: 16  win rate: 34%
 - 2026-10-08: $+0.00 (+0.000%)  trades=0 wins=0  end=$1000.00  rules_v=3
 - 2026-10-09: $+0.00 (+0.000%)  trades=0 wins=0  end=$1000.00  rules_v=3
 - 2026-10-12: $+0.00 (+0.000%)  trades=0 wins=0  end=$1000.00  rules_v=4
@@ -50,12 +50,13 @@ Cumulative trades: 44  wins: 15  win rate: 34%
 - 2026-10-19: $+2.00 (+0.201%)  trades=8 wins=4  end=$998.58  rules_v=5
 - 2026-10-20: $-4.13 (-0.413%)  trades=13 wins=4  end=$994.46  rules_v=5
 - 2026-10-21: $-12.36 (-1.243%)  trades=3 wins=0  end=$982.10  rules_v=6
+- 2026-10-22: $-5.16 (-0.526%)  trades=3 wins=1  end=$976.93  rules_v=6
 
 ## Per-rule cumulative (separate buckets)
 
 - R6 EXPERIMENTAL: n=8 wins=2 wr=25%  pnl=$-2.56  avgR=-0.4665  sessions=['2026-10-15', '2026-10-19', '2026-10-20']
 - R7 EXPERIMENTAL: n=13 wins=4 wr=31%  pnl=$-2.63  avgR=-0.3701  sessions=['2026-10-15', '2026-10-16']
-- R8: n=12 wins=6 wr=50%  pnl=$-0.95  avgR=-0.021  sessions=['2026-10-15', '2026-10-16', '2026-10-19', '2026-10-20', '2026-10-21']
+- R8: n=15 wins=7 wr=47%  pnl=$-6.11  avgR=-0.1182  sessions=['2026-10-15', '2026-10-16', '2026-10-19', '2026-10-20', '2026-10-21', '2026-10-22']
 - NR7 EXPERIMENTAL: n=11 wins=3 wr=27%  pnl=$-11.77  avgR=-0.3096  sessions=['2026-10-16', '2026-10-19', '2026-10-20']
 
 Paper only.
