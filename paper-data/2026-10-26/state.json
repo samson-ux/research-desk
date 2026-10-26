@@ -1,0 +1,231 @@
+{
+ "session_date": "2026-10-26",
+ "mode": "LIVE-PAPER",
+ "cash": 976.1499155779084,
+ "equity": 976.1499,
+ "realized_pnl": -0.781584422091604,
+ "positions": {},
+ "closed": [
+  {
+   "ticker": "OXY",
+   "side": "long",
+   "rule": "R8",
+   "pnl": 2.016560766863821,
+   "r": 0.6469155224055668,
+   "reason": "TARGET",
+   "hold_min": 15.0,
+   "entry_time": "08:35:10",
+   "exit_time": "08:50:32",
+   "entry": 63.761864542007444,
+   "exit": 64.13791316986084,
+   "shares": 5.3625,
+   "notional": 341.9229986065149
+  },
+  {
+   "ticker": "INTC",
+   "side": "short",
+   "rule": "R8",
+   "pnl": 2.387112418928169,
+   "r": 0.945147375484245,
+   "reason": "TARGET",
+   "hold_min": 31.0,
+   "entry_time": "08:35:10",
+   "exit_time": "09:07:03",
+   "entry": 87.61516708374023,
+   "exit": 87.00347908401488,
+   "shares": 3.9025,
+   "notional": 341.91818954429624
+  },
+  {
+   "ticker": "VRT",
+   "side": "short",
+   "rule": "R8",
+   "pnl": -5.185257607883594,
+   "r": -1.0295975187608308,
+   "reason": "STOP",
+   "hold_min": 82.0,
+   "entry_time": "08:35:10",
+   "exit_time": "10:00:02",
+   "entry": 195.9626691131592,
+   "exit": 199.42967740941728,
+   "shares": 1.4956,
+   "notional": 293.0817679256409
+  }
+ ],
+ "entries": {
+  "OXY|R8": 1,
+  "INTC|R8": 1,
+  "VRT|R8": 1
+ },
+ "last_stop_ts": {
+  "VRT": 1793026620
+ },
+ "halted": false,
+ "risk_scale": 1.0,
+ "reviews_done": [
+  "09:32",
+  "10:32",
+  "11:32",
+  "12:32",
+  "13:32",
+  "14:32"
+ ],
+ "no_trigger_reviews": {},
+ "hourly": [
+  {
+   "time": "09:32",
+   "equity": 979.88,
+   "cash": 688.25,
+   "realized": 4.4,
+   "open": 1,
+   "trades": 2,
+   "changes": 0
+  },
+  {
+   "time": "10:32",
+   "equity": 976.15,
+   "cash": 976.15,
+   "realized": -0.78,
+   "open": 0,
+   "trades": 3,
+   "changes": 0
+  },
+  {
+   "time": "11:32",
+   "equity": 976.15,
+   "cash": 976.15,
+   "realized": -0.78,
+   "open": 0,
+   "trades": 3,
+   "changes": 0
+  },
+  {
+   "time": "12:32",
+   "equity": 976.15,
+   "cash": 976.15,
+   "realized": -0.78,
+   "open": 0,
+   "trades": 3,
+   "changes": 0
+  },
+  {
+   "time": "13:32",
+   "equity": 976.15,
+   "cash": 976.15,
+   "realized": -0.78,
+   "open": 0,
+   "trades": 3,
+   "changes": 0
+  },
+  {
+   "time": "14:32",
+   "equity": 976.15,
+   "cash": 976.15,
+   "realized": -0.78,
+   "open": 0,
+   "trades": 3,
+   "changes": 0
+  }
+ ],
+ "last_prices": {
+  "NVDA": 216.0749969482422,
+  "AMD": 531.6300048828125,
+  "PANW": 390.7799987792969,
+  "CRWD": 261.8900146484375,
+  "MSFT": 532.8099975585938,
+  "TSLA": 391.4599914550781,
+  "MSTR": 139.94000244140625,
+  "UAL": 100.71499633789062,
+  "COIN": 159.47999572753906,
+  "INTC": 90.5199966430664,
+  "MU": 902.4400024414062,
+  "META": 629.0250244140625,
+  "DKNG": 21.190000534057617,
+  "QQQ": 712.1099853515625,
+  "SMH": 541.7100219726562,
+  "SHOP": 168.22000122070312,
+  "AFRM": 69.44000244140625,
+  "XOM": 184.38999938964844,
+  "OXY": 64.08000183105469,
+  "MS": 183.52999877929688,
+  "VRT": 199.9199981689453,
+  "DELL": 467.55499267578125,
+  "SPY": 765.14501953125,
+  "XLK": 186.35000610351562,
+  "XLF": 56.025001525878906,
+  "XLE": 69.58999633789062,
+  "XLV": 179.2100067138672,
+  "XLY": 114.27999877929688,
+  "XLI": 166.91000366210938
+ },
+ "errors": 0,
+ "loops": 359,
+ "started": "2026-10-26T08:21:38.377993-05:00",
+ "stalls": [
+  {
+   "start": "08:35",
+   "end": "08:38",
+   "minutes": 3.4,
+   "missed_windows": [
+    "R8"
+   ]
+  },
+  {
+   "start": "08:52",
+   "end": "08:56",
+   "minutes": 4.5,
+   "missed_windows": []
+  },
+  {
+   "start": "09:10",
+   "end": "09:27",
+   "minutes": 16.6,
+   "missed_windows": []
+  },
+  {
+   "start": "09:41",
+   "end": "09:59",
+   "minutes": 18.2,
+   "missed_windows": []
+  }
+ ],
+ "missed_entry_window": true,
+ "last_loop_ct": "2026-10-26T14:59:14.161974-05:00",
+ "startup_warnings": [
+  "STARTUP: Job A started at 2026-10-26 08:22:01 CDT, after its entry window opened at 08:20 CT. No backfill of missed entry windows.",
+  "STARTUP: Job B started at 2026-10-26 11:32:14 CDT, after its entry window opened at 11:25 CT. No backfill of missed entry windows."
+ ],
+ "job": "B",
+ "jobs_seen": [
+  "A",
+  "B"
+ ],
+ "yahoo_blocked": false,
+ "paper_only": true,
+ "last_update": "2026-10-26T15:00:24.235415-05:00",
+ "pending_setups": [],
+ "seen5": {
+  "NVDA|R8": 1793021400,
+  "AMD|R8": 1793021400,
+  "SHOP|R8": 1793021400,
+  "PANW|R8": 1793021400,
+  "CRWD|R8": 1793021400,
+  "MSFT|R8": 1793021400,
+  "TSLA|R8": 1793021400,
+  "MSTR|R8": 1793021400,
+  "AFRM|R8": 1793021400,
+  "UAL|R8": 1793021400,
+  "XOM|R8": 1793021400,
+  "OXY|R8": 1793021400,
+  "COIN|R8": 1793021400,
+  "INTC|R8": 1793021400,
+  "MU|R8": 1793021400,
+  "MS|R8": 1793021400,
+  "VRT|R8": 1793021400,
+  "META|R8": 1793021400,
+  "DELL|R8": 1793021400,
+  "DKNG|R8": 1793021400
+ },
+ "job_a_complete": true,
+ "job_b_complete": true
+}
