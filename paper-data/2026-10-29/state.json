@@ -1,0 +1,292 @@
+{
+ "session_date": "2026-10-29",
+ "mode": "LIVE-PAPER",
+ "cash": 976.4885117924882,
+ "equity": 976.4885,
+ "realized_pnl": -3.009288207511788,
+ "positions": {},
+ "closed": [
+  {
+   "ticker": "AFRM",
+   "side": "long",
+   "rule": "R8",
+   "pnl": 1.2057674541168655,
+   "r": 0.16857936694365463,
+   "reason": "TARGET",
+   "hold_min": 2.0,
+   "entry_time": "08:35:10",
+   "exit_time": "08:36:09",
+   "entry": 73.02649286270142,
+   "exit": 73.28333969497682,
+   "shares": 4.6945,
+   "notional": 342.8228707439518
+  },
+  {
+   "ticker": "CCL",
+   "side": "short",
+   "rule": "R8",
+   "pnl": -1.4807035765456917,
+   "r": -1.1107285395886861,
+   "reason": "STOP",
+   "hold_min": 1.0,
+   "entry_time": "08:35:10",
+   "exit_time": "08:36:09",
+   "entry": 28.875554389953614,
+   "exit": 29.02103804816518,
+   "shares": 10.1778,
+   "notional": 293.8896174700699
+  },
+  {
+   "ticker": "AMD",
+   "side": "long",
+   "rule": "R8",
+   "pnl": -2.734352085082962,
+   "r": -0.4447063488794741,
+   "reason": "EOD_FLATTEN_1455",
+   "hold_min": 380.0,
+   "entry_time": "08:35:10",
+   "exit_time": "14:55:35",
+   "entry": 569.4095625,
+   "exit": 564.8674494018555,
+   "shares": 0.602,
+   "notional": 342.784556625
+  }
+ ],
+ "entries": {
+  "AMD|R8": 1,
+  "AFRM|R8": 1,
+  "CCL|R8": 1
+ },
+ "last_stop_ts": {
+  "CCL": 1793280960
+ },
+ "halted": false,
+ "risk_scale": 1.0,
+ "reviews_done": [
+  "09:32",
+  "10:32",
+  "11:32",
+  "12:32",
+  "13:32",
+  "14:32"
+ ],
+ "no_trigger_reviews": {},
+ "hourly": [
+  {
+   "time": "10:32",
+   "equity": 981.42,
+   "cash": 636.44,
+   "realized": -0.27,
+   "open": 1,
+   "trades": 2,
+   "changes": 0
+  },
+  {
+   "time": "11:32",
+   "equity": 979.71,
+   "cash": 636.44,
+   "realized": -0.27,
+   "open": 1,
+   "trades": 2,
+   "changes": 0
+  },
+  {
+   "time": "12:32",
+   "equity": 978.3,
+   "cash": 636.44,
+   "realized": -0.27,
+   "open": 1,
+   "trades": 2,
+   "changes": 0
+  },
+  {
+   "time": "13:32",
+   "equity": 975.65,
+   "cash": 636.44,
+   "realized": -0.27,
+   "open": 1,
+   "trades": 2,
+   "changes": 0
+  },
+  {
+   "time": "14:32",
+   "equity": 976.54,
+   "cash": 636.44,
+   "realized": -0.27,
+   "open": 1,
+   "trades": 2,
+   "changes": 0
+  }
+ ],
+ "last_prices": {
+  "SMH": 561.1649780273438,
+  "NVDA": 213.42999267578125,
+  "AMD": 565.8900146484375,
+  "SHOP": 166.94500732421875,
+  "PANW": 380.18499755859375,
+  "CRWD": 261.05999755859375,
+  "MSFT": 530.3900146484375,
+  "TSLA": 403.30999755859375,
+  "MSTR": 141.63999938964844,
+  "AFRM": 74.78500366210938,
+  "UAL": 105.04000091552734,
+  "XOM": 183.08999633789062,
+  "OXY": 62.974998474121094,
+  "CCL": 28.84000015258789,
+  "INTC": 91.9749984741211,
+  "GILD": 165.2899932861328,
+  "HOOD": 91.54499816894531,
+  "QCOM": 185.33999633789062,
+  "DELL": 475.6400146484375,
+  "AAPL": 348.94000244140625,
+  "AMZN": 243.73500061035156,
+  "SPY": 769.2100830078125,
+  "QQQ": 714.8499755859375,
+  "XLK": 188.64500427246094,
+  "XLF": 56.935001373291016,
+  "XLE": 68.69999694824219,
+  "XLV": 183.88999938964844,
+  "XLY": 116.13500213623047,
+  "XLI": 170.10000610351562
+ },
+ "errors": 0,
+ "loops": 278,
+ "started": "2026-10-29T08:12:10.528401-05:00",
+ "stalls": [
+  {
+   "start": "08:53",
+   "end": "09:09",
+   "minutes": 16.1,
+   "missed_windows": []
+  },
+  {
+   "start": "startup",
+   "end": "10:01",
+   "minutes": null,
+   "missed_windows": [
+    "R8"
+   ],
+   "startup": true
+  },
+  {
+   "start": "09:23",
+   "end": "10:01",
+   "minutes": 38.3,
+   "missed_windows": []
+  },
+  {
+   "start": "10:15",
+   "end": "10:19",
+   "minutes": 3.7,
+   "missed_windows": []
+  },
+  {
+   "start": "10:33",
+   "end": "10:41",
+   "minutes": 8.8,
+   "missed_windows": []
+  },
+  {
+   "start": "10:55",
+   "end": "10:59",
+   "minutes": 3.2,
+   "missed_windows": []
+  },
+  {
+   "start": "11:13",
+   "end": "11:22",
+   "minutes": 9.3,
+   "missed_windows": []
+  },
+  {
+   "start": "11:46",
+   "end": "11:58",
+   "minutes": 11.2,
+   "missed_windows": []
+  },
+  {
+   "start": "12:12",
+   "end": "12:19",
+   "minutes": 7.6,
+   "missed_windows": []
+  },
+  {
+   "start": "12:33",
+   "end": "12:41",
+   "minutes": 7.6,
+   "missed_windows": []
+  },
+  {
+   "start": "12:55",
+   "end": "13:02",
+   "minutes": 7.5,
+   "missed_windows": []
+  },
+  {
+   "start": "13:16",
+   "end": "13:23",
+   "minutes": 6.9,
+   "missed_windows": []
+  },
+  {
+   "start": "13:37",
+   "end": "13:45",
+   "minutes": 7.6,
+   "missed_windows": []
+  },
+  {
+   "start": "13:59",
+   "end": "14:06",
+   "minutes": 7.2,
+   "missed_windows": []
+  }
+ ],
+ "missed_entry_window": true,
+ "last_loop_ct": "2026-10-29T14:59:25.499893-05:00",
+ "startup_warnings": [
+  "STARTUP: Job A started at 2026-10-29 10:01:25 CDT, after its entry window opened at 08:20 CT. No backfill of missed entry windows.",
+  "STARTUP: Job A started at 2026-10-29 10:41:57 CDT, after its entry window opened at 08:20 CT. No backfill of missed entry windows.",
+  "STARTUP: Job A started at 2026-10-29 11:22:29 CDT, after its entry window opened at 08:20 CT. No backfill of missed entry windows.",
+  "STARTUP: Job B started at 2026-10-29 11:30:52 CDT, after its entry window opened at 11:25 CT. No backfill of missed entry windows.",
+  "STARTUP: Job B started at 2026-10-29 11:58:05 CDT, after its entry window opened at 11:25 CT. No backfill of missed entry windows.",
+  "STARTUP: Job B started at 2026-10-29 12:19:40 CDT, after its entry window opened at 11:25 CT. No backfill of missed entry windows.",
+  "STARTUP: Job B started at 2026-10-29 12:41:15 CDT, after its entry window opened at 11:25 CT. No backfill of missed entry windows.",
+  "STARTUP: Job B started at 2026-10-29 13:02:45 CDT, after its entry window opened at 11:25 CT. No backfill of missed entry windows.",
+  "STARTUP: Job B started at 2026-10-29 13:23:41 CDT, after its entry window opened at 11:25 CT. No backfill of missed entry windows.",
+  "STARTUP: Job B started at 2026-10-29 13:45:17 CDT, after its entry window opened at 11:25 CT. No backfill of missed entry windows.",
+  "STARTUP: Job B started at 2026-10-29 14:06:26 CDT, after its entry window opened at 11:25 CT. No backfill of missed entry windows."
+ ],
+ "job": "B",
+ "jobs_seen": [
+  "A",
+  "B"
+ ],
+ "yahoo_blocked": false,
+ "paper_only": true,
+ "last_update": "2026-10-29T15:00:36.176399-05:00",
+ "pending_setups": [],
+ "seen5": {
+  "NVDA|R8": 1793280600,
+  "AMD|R8": 1793280600,
+  "SHOP|R8": 1793280600,
+  "PANW|R8": 1793280600,
+  "CRWD|R8": 1793280600,
+  "MSFT|R8": 1793280600,
+  "TSLA|R8": 1793280600,
+  "MSTR|R8": 1793280600,
+  "AFRM|R8": 1793280600,
+  "UAL|R8": 1793280600,
+  "XOM|R8": 1793280600,
+  "OXY|R8": 1793280600,
+  "CCL|R8": 1793280600,
+  "INTC|R8": 1793280600,
+  "GILD|R8": 1793280600,
+  "HOOD|R8": 1793280600,
+  "QCOM|R8": 1793280600,
+  "DELL|R8": 1793280600,
+  "AAPL|R8": 1793280600,
+  "AMZN|R8": 1793280600
+ },
+ "job_a_complete": true,
+ "job_b_complete": true
+}
