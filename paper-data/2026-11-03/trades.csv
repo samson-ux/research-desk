@@ -1,0 +1,3 @@
+time_ct,mode,action,ticker,side,price,shares,size_usd,rule_id,reason,pnl_usd,pnl_pct,exit_reason,entry_time_ct,entry_price,stop,target,r_multiple,hold_min,data_bar_ct,bar_close_raw,slippage_bps
+2026-11-03 08:35:09,LIVE-PAPER,BUY,OXY,long,60.4002,5.6856,343.41,R8,"gap fade: gap -1.43% (open 59.85 vs prev close 60.72), first 5m bar green; target prev close | ctx: context filter not used by this rule (matches backtest)",,,,,,59.6091,60.72,,,08:34,60.369998931884766,5
+2026-11-03 09:30:24,LIVE-PAPER,SELL,OXY,long,60.6896,5.6856,345.06,R8,"gap fade: gap -1.43% (open 59.85 vs prev close 60.72), first 5m bar green; target prev close",1.65,0.479,TARGET,08:35:09,60.4002,59.6091,60.72,0.37,45.0,09:19,60.720001220703125,5
