@@ -2,12 +2,14 @@
 
 No broker. No orders. No real money. Prices are Yahoo chart bars only.
 
-Interim report — this session is not finalized yet.
+Day P&L: $-2.11 (-0.215%)  |  equity $984.71 -> $982.59
+Trades: 3  wins: 1  win rate: 33%
+Rules version (day): 6  mode: LIVE-PAPER  job: B  jobs: ['A', 'B']  halted: False
+Open positions at report time: 0
 
-Day P&L: $-2.52 (-0.256%)  |  equity $984.71 -> $982.19
-Trades: 2  wins: 1  win rate: 50%
-Rules version (day): 6  mode: LIVE-PAPER  job: A  jobs: ['A']  halted: False
-Open positions at report time: 1
+## Startup
+
+- STARTUP: Job B started at 2026-11-06 11:32:41 CST, after its entry window opened at 11:25 CT. No backfill of missed entry windows.
 
 ## Stall / missed window (no backfill)
 
@@ -18,17 +20,18 @@ Open positions at report time: 1
 
 - 08:35:09->08:43:19  short TSLA  rule=R8  pnl=$-4.08  R=-1.04  exit=STOP  hold=6.0m
 - 08:35:09->09:54:08  long MSFT  rule=R8  pnl=$2.74  R=0.56  exit=TARGET  hold=78.0m
+- 08:35:09->14:55:50  short CAT  rule=R8  pnl=$-0.77  R=-0.10  exit=EOD_FLATTEN_1455  hold=380.5m
 
 ## Per-rule this session
 
 | rule | experimental | trades | wins | P&L |
 |---|---|---|---|---|
-| R8 | False | 2 | 1 | -1.34 |
+| R8 | False | 3 | 1 | -2.11 |
 
 ## Cumulative paper account
 
-Sessions: 19  start $1000.00 -> $984.71  total P&L $-15.29 (-1.529%)
-Cumulative trades: 67  wins: 29  win rate: 43%
+Sessions: 20  start $1000.00 -> $982.59  total P&L $-17.41 (-1.741%)
+Cumulative trades: 70  wins: 30  win rate: 43%
 - 2026-10-08: $+0.00 (+0.000%)  trades=0 wins=0  end=$1000.00  rules_v=3
 - 2026-10-09: $+0.00 (+0.000%)  trades=0 wins=0  end=$1000.00  rules_v=3
 - 2026-10-12: $+0.00 (+0.000%)  trades=0 wins=0  end=$1000.00  rules_v=4
@@ -48,12 +51,13 @@ Cumulative trades: 67  wins: 29  win rate: 43%
 - 2026-11-03: $+1.65 (+0.168%)  trades=1 wins=1  end=$982.83  rules_v=6
 - 2026-11-04: $+0.00 (+0.000%)  trades=0 wins=0  end=$982.83  rules_v=6
 - 2026-11-05: $+1.88 (+0.191%)  trades=3 wins=2  end=$984.71  rules_v=6
+- 2026-11-06: $-2.11 (-0.215%)  trades=3 wins=1  end=$982.59  rules_v=6
 
 ## Per-rule cumulative (separate buckets)
 
 - R6 EXPERIMENTAL: n=8 wins=2 wr=25%  pnl=$-2.56  avgR=-0.4665  sessions=['2026-10-15', '2026-10-19', '2026-10-20']
 - R7 EXPERIMENTAL: n=13 wins=4 wr=31%  pnl=$-2.63  avgR=-0.3701  sessions=['2026-10-15', '2026-10-16']
-- R8: n=35 wins=20 wr=57%  pnl=$1.67  avgR=-0.015  sessions=['2026-10-15', '2026-10-16', '2026-10-19', '2026-10-20', '2026-10-21', '2026-10-22', '2026-10-26', '2026-10-27', '2026-10-28', '2026-10-29', '2026-10-30', '2026-11-02', '2026-11-03', '2026-11-05']
+- R8: n=38 wins=21 wr=55%  pnl=$-0.45  avgR=-0.0292  sessions=['2026-10-15', '2026-10-16', '2026-10-19', '2026-10-20', '2026-10-21', '2026-10-22', '2026-10-26', '2026-10-27', '2026-10-28', '2026-10-29', '2026-10-30', '2026-11-02', '2026-11-03', '2026-11-05', '2026-11-06']
 - NR7 EXPERIMENTAL: n=11 wins=3 wr=27%  pnl=$-11.77  avgR=-0.3096  sessions=['2026-10-16', '2026-10-19', '2026-10-20']
 
 Paper only.
