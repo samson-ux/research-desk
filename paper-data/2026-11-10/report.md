@@ -2,12 +2,14 @@
 
 No broker. No orders. No real money. Prices are Yahoo chart bars only.
 
-Interim report — this session is not finalized yet.
-
 Day P&L: $+0.00 (+0.000%)  |  equity $981.77 -> $981.77
 Trades: 0  wins: 0  win rate: 0%
-Rules version (day): 6  mode: LIVE-PAPER  job: A  jobs: ['A']  halted: False
+Rules version (day): 6  mode: LIVE-PAPER  job: B  jobs: ['A', 'B']  halted: False
 Open positions at report time: 0
+
+## Startup
+
+- STARTUP: Job B started at 2026-11-10 11:30:46 CST, after its entry window opened at 11:25 CT. No backfill of missed entry windows.
 
 ## Stall / missed window (no backfill)
 
@@ -26,7 +28,7 @@ None.
 
 ## Cumulative paper account
 
-Sessions: 21  start $1000.00 -> $981.77  total P&L $-18.23 (-1.823%)
+Sessions: 22  start $1000.00 -> $981.77  total P&L $-18.23 (-1.823%)
 Cumulative trades: 73  wins: 32  win rate: 44%
 - 2026-10-08: $+0.00 (+0.000%)  trades=0 wins=0  end=$1000.00  rules_v=3
 - 2026-10-09: $+0.00 (+0.000%)  trades=0 wins=0  end=$1000.00  rules_v=3
@@ -49,6 +51,7 @@ Cumulative trades: 73  wins: 32  win rate: 44%
 - 2026-11-05: $+1.88 (+0.191%)  trades=3 wins=2  end=$984.71  rules_v=6
 - 2026-11-06: $-2.11 (-0.215%)  trades=3 wins=1  end=$982.59  rules_v=6
 - 2026-11-09: $-0.83 (-0.084%)  trades=3 wins=2  end=$981.77  rules_v=6
+- 2026-11-10: $+0.00 (+0.000%)  trades=0 wins=0  end=$981.77  rules_v=6
 
 ## Per-rule cumulative (separate buckets)
 
