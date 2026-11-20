@@ -1,0 +1,219 @@
+{
+ "session_date": "2026-11-20",
+ "mode": "LIVE-PAPER",
+ "cash": 975.5037898505084,
+ "equity": 975.5038,
+ "realized_pnl": -8.124210149491802,
+ "positions": {},
+ "closed": [
+  {
+   "ticker": "SNOW",
+   "side": "long",
+   "rule": "R8",
+   "pnl": 1.582770284944197,
+   "r": 0.3463148293796725,
+   "reason": "TARGET",
+   "hold_min": 1.0,
+   "entry_time": "08:35:10",
+   "exit_time": "08:36:09",
+   "entry": 267.0234596557617,
+   "exit": 268.4557013397217,
+   "shares": 1.1051,
+   "notional": 295.08762526558223
+  },
+  {
+   "ticker": "CRWD",
+   "side": "long",
+   "rule": "R8",
+   "pnl": -5.700437391700985,
+   "r": -1.0306194852268056,
+   "reason": "STOP",
+   "hold_min": 4.0,
+   "entry_time": "08:35:10",
+   "exit_time": "08:44:18",
+   "entry": 238.119,
+   "exit": 234.17597074655808,
+   "shares": 1.4457,
+   "notional": 344.2486383
+  },
+  {
+   "ticker": "PLTR",
+   "side": "long",
+   "rule": "R8",
+   "pnl": -4.006543042735013,
+   "r": -1.0443692808046625,
+   "reason": "STOP",
+   "hold_min": 5.0,
+   "entry_time": "08:35:10",
+   "exit_time": "08:44:18",
+   "entry": 149.80486072540282,
+   "exit": 148.06144527666908,
+   "shares": 2.2981,
+   "notional": 344.26655043304817
+  }
+ ],
+ "entries": {
+  "CRWD|R8": 1,
+  "PLTR|R8": 1,
+  "SNOW|R8": 1
+ },
+ "last_stop_ts": {
+  "CRWD": 1795185540,
+  "PLTR": 1795185600
+ },
+ "halted": false,
+ "risk_scale": 1.0,
+ "reviews_done": [
+  "09:32",
+  "10:32",
+  "11:32",
+  "12:32",
+  "13:32",
+  "14:32"
+ ],
+ "no_trigger_reviews": {},
+ "hourly": [
+  {
+   "time": "09:34",
+   "equity": 975.5,
+   "cash": 975.5,
+   "realized": -8.12,
+   "open": 0,
+   "trades": 3,
+   "changes": 0
+  },
+  {
+   "time": "10:32",
+   "equity": 975.5,
+   "cash": 975.5,
+   "realized": -8.12,
+   "open": 0,
+   "trades": 3,
+   "changes": 0
+  },
+  {
+   "time": "11:32",
+   "equity": 975.5,
+   "cash": 975.5,
+   "realized": -8.12,
+   "open": 0,
+   "trades": 3,
+   "changes": 0
+  },
+  {
+   "time": "12:32",
+   "equity": 975.5,
+   "cash": 975.5,
+   "realized": -8.12,
+   "open": 0,
+   "trades": 3,
+   "changes": 0
+  },
+  {
+   "time": "13:32",
+   "equity": 975.5,
+   "cash": 975.5,
+   "realized": -8.12,
+   "open": 0,
+   "trades": 3,
+   "changes": 0
+  },
+  {
+   "time": "14:32",
+   "equity": 975.5,
+   "cash": 975.5,
+   "realized": -8.12,
+   "open": 0,
+   "trades": 3,
+   "changes": 0
+  }
+ ],
+ "last_prices": {
+  "AMD": 420.8949890136719,
+  "PANW": 343.55999755859375,
+  "MSFT": 482.7099914550781,
+  "TSLA": 345.32000732421875,
+  "MSTR": 77.83999633789062,
+  "OXY": 53.68000030517578,
+  "UNH": 340.0,
+  "PLTR": 143.0500030517578,
+  "SNOW": 254.0399932861328,
+  "SOFI": 12.425000190734863,
+  "RBLX": 46.45000076293945,
+  "RIOT": 16.2450008392334,
+  "CAT": 509.2699890136719,
+  "SPY": 687.8599853515625,
+  "QQQ": 607.8200073242188,
+  "XLK": 148.57000732421875,
+  "XLF": 54.435001373291016,
+  "XLE": 60.36000061035156,
+  "XLV": 176.77000427246094,
+  "XLY": 112.19000244140625,
+  "XLI": 155.88999938964844,
+  "SMH": 398.3299865722656,
+  "NVDA": 125.62999725341797,
+  "SHOP": 123.58999633789062,
+  "CRWD": 229.125,
+  "AFRM": 53.68000030517578,
+  "UAL": 100.75,
+  "XOM": 159.1699981689453,
+  "LOW": 220.0399932861328
+ },
+ "errors": 0,
+ "loops": 359,
+ "started": "2026-11-20T08:08:38.120283-06:00",
+ "stalls": [
+  {
+   "start": "08:36",
+   "end": "08:43",
+   "minutes": 8.0,
+   "missed_windows": [
+    "R8"
+   ]
+  },
+  {
+   "start": "08:57",
+   "end": "09:34",
+   "minutes": 36.2,
+   "missed_windows": []
+  }
+ ],
+ "missed_entry_window": true,
+ "last_loop_ct": "2026-11-20T14:59:31.691313-06:00",
+ "startup_warnings": [
+  "STARTUP: Job B started at 2026-11-20 11:30:31 CST, after its entry window opened at 11:25 CT. No backfill of missed entry windows."
+ ],
+ "job": "B",
+ "jobs_seen": [
+  "A",
+  "B"
+ ],
+ "yahoo_blocked": false,
+ "paper_only": true,
+ "last_update": "2026-11-20T15:00:41.612732-06:00",
+ "pending_setups": [],
+ "seen5": {
+  "NVDA|R8": 1795185000,
+  "AMD|R8": 1795185000,
+  "SHOP|R8": 1795185000,
+  "PANW|R8": 1795185000,
+  "CRWD|R8": 1795185000,
+  "MSFT|R8": 1795185000,
+  "TSLA|R8": 1795185000,
+  "MSTR|R8": 1795185000,
+  "AFRM|R8": 1795185000,
+  "UAL|R8": 1795185000,
+  "XOM|R8": 1795185000,
+  "OXY|R8": 1795185000,
+  "UNH|R8": 1795185000,
+  "PLTR|R8": 1795185000,
+  "SNOW|R8": 1795185000,
+  "SOFI|R8": 1795185000,
+  "RBLX|R8": 1795185000,
+  "RIOT|R8": 1795185000,
+  "LOW|R8": 1795185000,
+  "CAT|R8": 1795185000
+ },
+ "job_a_complete": true,
+ "job_b_complete": true
+}
