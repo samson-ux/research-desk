@@ -1,0 +1,181 @@
+{
+ "session_date": "2026-11-24",
+ "mode": "LIVE-PAPER",
+ "cash": 618.9023075786544,
+ "equity": 956.6946,
+ "realized_pnl": -8.157793016296406,
+ "positions": {
+  "QCOM": {
+   "ticker": "QCOM",
+   "side": "long",
+   "rule": "R8",
+   "entry_ts": 1795530900,
+   "entry_time_ct": "08:35:48",
+   "entry_price": 164.4821938934326,
+   "shares": 2.0527,
+   "notional": 337.6325994050491,
+   "stop": 159.99828338623047,
+   "target": 165.3800048828125,
+   "risk_per_share": 4.4839105072021255,
+   "time_stop_min": 385,
+   "last_checked": 1795541280,
+   "reason": "gap fade: gap -2.90% (open 160.59 vs prev close 165.38), first 5m bar green; target prev close"
+  }
+ },
+ "closed": [
+  {
+   "ticker": "RIOT",
+   "side": "long",
+   "rule": "R8",
+   "pnl": -5.768650668052738,
+   "r": -1.0252188753151434,
+   "reason": "STOP",
+   "hold_min": 15.0,
+   "entry_time": "08:35:48",
+   "exit_time": "08:50:48",
+   "entry": 16.72835931301117,
+   "exit": 16.3949421337877,
+   "shares": 17.3016,
+   "notional": 289.42738148999405
+  },
+  {
+   "ticker": "UAL",
+   "side": "long",
+   "rule": "R8",
+   "pnl": -2.389142348243668,
+   "r": -1.095182717613199,
+   "reason": "STOP",
+   "hold_min": 71.0,
+   "entry_time": "08:35:48",
+   "exit_time": "09:46:43",
+   "entry": 106.91343061065673,
+   "exit": 106.15689408493043,
+   "shares": 3.158,
+   "notional": 337.632613868454
+  }
+ ],
+ "entries": {
+  "UAL|R8": 1,
+  "QCOM|R8": 1,
+  "RIOT|R8": 1
+ },
+ "last_stop_ts": {
+  "RIOT": 1795531800,
+  "UAL": 1795535160
+ },
+ "halted": false,
+ "risk_scale": 1.0,
+ "reviews_done": [
+  "09:32",
+  "10:32"
+ ],
+ "no_trigger_reviews": {},
+ "hourly": [
+  {
+   "time": "09:32",
+   "equity": 955.9,
+   "cash": 283.66,
+   "realized": -5.77,
+   "open": 2,
+   "trades": 1,
+   "changes": 0
+  },
+  {
+   "time": "10:32",
+   "equity": 950.47,
+   "cash": 618.9,
+   "realized": -8.16,
+   "open": 1,
+   "trades": 2,
+   "changes": 0
+  }
+ ],
+ "last_prices": {
+  "NVDA": 153.32000732421875,
+  "AMD": 410.8699951171875,
+  "SHOP": 133.25,
+  "PANW": 356.67498779296875,
+  "CRWD": 213.6699981689453,
+  "MSFT": 500.8900146484375,
+  "TSLA": 382.7799987792969,
+  "MSTR": 78.83000183105469,
+  "AFRM": 59.125,
+  "UAL": 107.4800033569336,
+  "XOM": 158.95010375976562,
+  "OXY": 53.75910186767578,
+  "COIN": 103.46499633789062,
+  "QCOM": 164.55999755859375,
+  "ORCL": 109.72000122070312,
+  "PLTR": 161.50999450683594,
+  "RIOT": 15.8149995803833,
+  "MRK": 139.9499969482422,
+  "HOOD": 64.91500091552734,
+  "NKE": 35.69499969482422,
+  "SPY": 718.385009765625,
+  "QQQ": 638.2100219726562,
+  "XLK": 157.04010009765625,
+  "XLF": 56.080101013183594,
+  "XLE": 60.474998474121094,
+  "XLV": 184.52000427246094,
+  "XLY": 117.62000274658203,
+  "XLI": 161.25,
+  "SMH": 426.92999267578125
+ },
+ "errors": 0,
+ "loops": 148,
+ "started": "2026-11-24T08:07:27.110547-06:00",
+ "stalls": [
+  {
+   "start": "08:55",
+   "end": "09:31",
+   "minutes": 35.9,
+   "missed_windows": []
+  },
+  {
+   "start": "10:24",
+   "end": "10:28",
+   "minutes": 3.8,
+   "missed_windows": []
+  },
+  {
+   "start": "11:20",
+   "end": "11:24",
+   "minutes": 3.8,
+   "missed_windows": []
+  }
+ ],
+ "missed_entry_window": false,
+ "last_loop_ct": "2026-11-24T11:29:32.425316-06:00",
+ "startup_warnings": [],
+ "job": "A",
+ "jobs_seen": [
+  "A"
+ ],
+ "yahoo_blocked": false,
+ "paper_only": true,
+ "last_update": "2026-11-24T11:30:32.425594-06:00",
+ "pending_setups": [],
+ "seen5": {
+  "NVDA|R8": 1795530600,
+  "AMD|R8": 1795530600,
+  "SHOP|R8": 1795530600,
+  "PANW|R8": 1795530600,
+  "CRWD|R8": 1795530600,
+  "MSFT|R8": 1795530600,
+  "TSLA|R8": 1795530600,
+  "MSTR|R8": 1795530600,
+  "AFRM|R8": 1795530600,
+  "UAL|R8": 1795530600,
+  "XOM|R8": 1795530600,
+  "OXY|R8": 1795530600,
+  "COIN|R8": 1795530600,
+  "QCOM|R8": 1795530600,
+  "ORCL|R8": 1795530600,
+  "PLTR|R8": 1795530600,
+  "RIOT|R8": 1795530600,
+  "MRK|R8": 1795530600,
+  "HOOD|R8": 1795530600,
+  "NKE|R8": 1795530600
+ },
+ "job_a_complete": true
+}
