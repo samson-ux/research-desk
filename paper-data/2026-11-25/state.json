@@ -1,0 +1,164 @@
+{
+ "session_date": "2026-11-25",
+ "mode": "LIVE-PAPER",
+ "cash": 958.2081,
+ "equity": 958.2081,
+ "realized_pnl": 0.0,
+ "positions": {},
+ "closed": [],
+ "entries": {},
+ "last_stop_ts": {},
+ "halted": false,
+ "risk_scale": 1.0,
+ "reviews_done": [
+  "09:32",
+  "10:32",
+  "11:32",
+  "12:32",
+  "13:32",
+  "14:32"
+ ],
+ "no_trigger_reviews": {},
+ "hourly": [
+  {
+   "time": "09:32",
+   "equity": 958.21,
+   "cash": 958.21,
+   "realized": 0.0,
+   "open": 0,
+   "trades": 0,
+   "changes": 0
+  },
+  {
+   "time": "10:32",
+   "equity": 958.21,
+   "cash": 958.21,
+   "realized": 0.0,
+   "open": 0,
+   "trades": 0,
+   "changes": 0
+  },
+  {
+   "time": "11:32",
+   "equity": 958.21,
+   "cash": 958.21,
+   "realized": 0.0,
+   "open": 0,
+   "trades": 0,
+   "changes": 0
+  },
+  {
+   "time": "12:32",
+   "equity": 958.21,
+   "cash": 958.21,
+   "realized": 0.0,
+   "open": 0,
+   "trades": 0,
+   "changes": 0
+  },
+  {
+   "time": "13:32",
+   "equity": 958.21,
+   "cash": 958.21,
+   "realized": 0.0,
+   "open": 0,
+   "trades": 0,
+   "changes": 0
+  },
+  {
+   "time": "14:32",
+   "equity": 958.21,
+   "cash": 958.21,
+   "realized": 0.0,
+   "open": 0,
+   "trades": 0,
+   "changes": 0
+  }
+ ],
+ "last_prices": {
+  "NVDA": 149.3000030517578,
+  "AMD": 406.8900146484375,
+  "SHOP": 133.50999450683594,
+  "PANW": 356.32000732421875,
+  "CRWD": 209.8000030517578,
+  "MSFT": 490.1199951171875,
+  "TSLA": 380.9299011230469,
+  "MSTR": 79.95999908447266,
+  "AFRM": 60.61000061035156,
+  "UAL": 104.55999755859375,
+  "XOM": 158.65499877929688,
+  "OXY": 54.09000015258789,
+  "DAL": 83.125,
+  "TXN": 270.05999755859375,
+  "AAL": 12.59000015258789,
+  "GS": 801.3099975585938,
+  "MS": 167.63499450683594,
+  "RBLX": 55.470001220703125,
+  "ABNB": 172.32000732421875,
+  "META": 609.8734130859375,
+  "SPY": 717.8049926757812,
+  "QQQ": 634.3099975585938,
+  "XLK": 155.91000366210938,
+  "XLF": 56.61000061035156,
+  "XLE": 61.040000915527344,
+  "XLV": 184.10499572753906,
+  "XLY": 117.6719970703125,
+  "XLI": 163.25999450683594,
+  "SMH": 422.69500732421875
+ },
+ "errors": 0,
+ "loops": 389,
+ "started": "2026-11-25T08:15:42.155472-06:00",
+ "stalls": [
+  {
+   "start": "08:57",
+   "end": "09:02",
+   "minutes": 6.0,
+   "missed_windows": []
+  },
+  {
+   "start": "10:16",
+   "end": "10:22",
+   "minutes": 6.1,
+   "missed_windows": []
+  }
+ ],
+ "missed_entry_window": false,
+ "last_loop_ct": "2026-11-25T14:59:10.205364-06:00",
+ "startup_warnings": [
+  "STARTUP: Job B started at 2026-11-25 11:32:03 CST, after its entry window opened at 11:25 CT. No backfill of missed entry windows."
+ ],
+ "job": "B",
+ "jobs_seen": [
+  "A",
+  "B"
+ ],
+ "yahoo_blocked": false,
+ "paper_only": true,
+ "last_update": "2026-11-25T15:00:20.070356-06:00",
+ "pending_setups": [],
+ "seen5": {
+  "NVDA|R8": 1795617000,
+  "AMD|R8": 1795617000,
+  "SHOP|R8": 1795617000,
+  "PANW|R8": 1795617000,
+  "CRWD|R8": 1795617000,
+  "MSFT|R8": 1795617000,
+  "TSLA|R8": 1795617000,
+  "MSTR|R8": 1795617000,
+  "AFRM|R8": 1795617000,
+  "UAL|R8": 1795617000,
+  "XOM|R8": 1795617000,
+  "OXY|R8": 1795617000,
+  "DAL|R8": 1795617000,
+  "TXN|R8": 1795617000,
+  "AAL|R8": 1795617000,
+  "GS|R8": 1795617000,
+  "MS|R8": 1795617000,
+  "RBLX|R8": 1795617000,
+  "ABNB|R8": 1795617000,
+  "META|R8": 1795617000
+ },
+ "job_a_complete": true,
+ "job_b_complete": true
+}
